@@ -9,10 +9,11 @@ import sys
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-OUT = BASE / 'salida' / 'Entidades_publicas_poder_y_presupuesto_v5.xlsx'
+OUT = BASE / 'salida' / 'Entidades_publicas_poder_y_presupuesto_v6.xlsx'
 ENV = {**os.environ, 'PYTHONUTF8': '1'}   # UTF-8 everywhere, also on Windows consoles
 
 STEPS = [
+    ('Altas: fichas nuevas a partir de los encargos 28-31', ['preparar_altas.py']),
     ('Clasificación v1 (histórica: niveles A-D)', ['clasificacion.py']),
     ('Clasificación v2 (función, tema, duplicidad, UE, actividad; datos de duplicidades)', ['clasificacion2.py']),
     ('Clasificación v3 (veredicto alineado con el P100)', ['clasificacion3.py']),

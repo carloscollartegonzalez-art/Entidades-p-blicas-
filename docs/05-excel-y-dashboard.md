@@ -6,18 +6,19 @@
 
 Hace lo siguiente:
 
-1. Aplica los JSON de `datos/resultados/` en orden; la clasificación va la última.
-2. Marca **en amarillo** cada celda cambiada y pone la fecha de revisión en la fila.
-3. Añade las URL nuevas a «Fuentes de la ficha», sin borrar las anteriores.
-4. Añade columnas nuevas al final de «Hoja 1»: la clasificación (útil o no, veredicto, base en el P100, destino, función, duplicidad, UE, actividad, motivo, tema), el coste de apoyo, el coste por persona y el desglose de personal.
-5. Crea o rehace estas hojas:
+1. Añade al final de la Hoja 1 las altas que lista `scripts/inventario.py` (hoy, `datos/entrada/altas_2026-10-14.json`), **con fondo verde**. Los rangos de las fórmulas de la hoja «Entidades» se amplían hasta la última fila.
+2. Aplica los JSON de `datos/resultados/` en orden; la clasificación va la última.
+3. Marca **en amarillo** cada celda cambiada de las fichas originales y pone la fecha de revisión en la fila (las altas conservan la suya, 14/10/2026).
+4. Añade las URL nuevas a «Fuentes de la ficha», sin borrar las anteriores.
+5. Añade columnas nuevas al final de «Hoja 1»: la clasificación (útil o no, veredicto, base en el P100, destino, función, duplicidad, UE, actividad, motivo, tema), el coste de apoyo, el coste por persona y el desglose de personal.
+6. Crea o rehace estas hojas:
 
 | Hoja | Contenido |
 |---|---|
 | Entidades | Resumen con fórmulas: presupuesto por base, ejecución de personal a 31/08, cobertura de campos, recuentos por veredicto, por útil o no y por función, base en el P100, texto del criterio y escenario de coste de los órganos consultivos |
 | Duplicidades por tema | Matriz tema × territorio con nombre y fuente de cada celda |
 | Hoja 1 | La hoja original completada |
-| Cambios 12-10-2026 | Cada celda cambiada: valor anterior y valor nuevo |
+| Cambios 12-10-2026 | Cada celda cambiada: valor anterior y valor nuevo; una línea por cada alta |
 | Verificación y pendientes | Por ficha: cómo se verificó y qué sigue sin cifra |
 | Gasto CNMC y CSIC | Capítulos y a qué se destina cada uno |
 

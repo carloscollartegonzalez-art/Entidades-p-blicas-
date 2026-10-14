@@ -33,16 +33,16 @@ Las medidas se citan por su apartado y número («Costes del Estado 2»). El P10
 
 Cada ficha lleva tres columnas que justifican el veredicto:
 - **Base en el P100:**
-  - «Explícito en el P100: …» (55 fichas): el P100 nombra el organismo o su categoría.
-  - «Aplicando el criterio del P100: …» (53): es una deducción a partir del P100 y conviene validarla.
+  - «Explícito en el P100: …» (63 fichas): el P100 nombra el organismo o su categoría.
+  - «Aplicando el criterio del P100: …» (55): es una deducción a partir del P100 y conviene validarla.
   - «El P100 no trata…» (4).
 - **Destino de sus funciones:** solo en Integrar y en algunos Suprimir.
 - **Motivo:** a qué sirve hoy el organismo, en una frase.
 
 ## Resultado
 
-### Mantener (27)
-- **Estatales:** AESA, Antidopaje (CELAD), AEI, AIReF, AESF, Oficina de Supervisión de la Contratación, CNMC, AICA, Inspección de Trabajo, BOE, CSIC, AEMET, AEMPS, SEPIE, AESIA, Agencia Estatal de Administración Digital, Autoridad de Protección del Informante y las confederaciones hidrográficas del Miño-Sil y del Cantábrico.
+### Mantener (28)
+- **Estatales:** AESA, Antidopaje (CELAD), AEI, AIReF, AESF, Oficina de Supervisión de la Contratación, CNMC, AICA, Inspección de Trabajo, BOE, CSIC, AEMET, AEMPS, SEPIE, AESIA, Agencia Estatal de Administración Digital, Autoridad de Protección del Informante, las confederaciones hidrográficas del Miño-Sil y del Cantábrico y el Observatorio Nacional de Seguridad Vial (alta del 14/10/2026; ver casos discutibles).
 - **Autonómicas sin equivalente estatal:**
   - emergencias de Asturias, Andalucía y Cantabria (el Estado no presta el 112);
   - servicios sociales de Cantabria;
@@ -82,10 +82,12 @@ Las confederaciones hidrográficas del Miño-Sil y del Cantábrico estaban en Re
 | Defensor del Pueblo | Autoridad para la Igualdad de Trato |
 | Consejería | Salud laboral y formación de empleados públicos de Cantabria, turismo de Murcia, salud pública de Baleares, agencia empresarial de Andalucía |
 
-Los organismos de destino que no están entre las 125 fichas (CDTI, AEAT, ANECA, AEPD, Defensor del Pueblo, IDAE, INCIBE y CCN-CERT) aparecen en el dashboard como filas de **referencia** (ids 9001–9008, en `datos/referencias_matriz.json`). No cuentan en ningún total. Su importe es de 2023 y de bases distintas (transferencia, dotación, subvención o total de ingresos), así que no se compara con el presupuesto propio 2026 de las fichas. AEI, CNMC, CTBG y AIReF ya tienen ficha propia (ids 4, 24, 6 y 5).
+Los organismos de destino que no están en el inventario (CDTI, AEAT, ANECA, AEPD, Defensor del Pueblo, IDAE, INCIBE y CCN-CERT) aparecen en el dashboard como filas de **referencia** (ids 9001–9008, en `datos/referencias_matriz.json`). No cuentan en ningún total. Su importe es de 2023 y de bases distintas (transferencia, dotación, subvención o total de ingresos), así que no se compara con el presupuesto propio 2026 de las fichas. AEI, CNMC, CTBG y AIReF ya tienen ficha propia (ids 4, 24, 6 y 5).
 
-### Suprimir (43)
-- **35 observatorios, consejos, mesas y comisiones estatales** (Costes 2).
+### Suprimir (52)
+- **40 observatorios, consejos, mesas y comisiones estatales** (Costes 2). Cinco son altas del 14/10/2026: el Observatorio Militar para la Igualdad, el de Servicios Portuarios, el de Salud de las Mujeres, el de Buenas Prácticas Regulatorias y el de Salud y Cambio Climático. Los dos creados por ley (Servicios Portuarios y Buenas Prácticas) se suprimirían en la ley de la medida 4, como dice Costes 2.
+- **Observatorio de Igualdad de RTVE** (Costes 2, aplicado a una sociedad mercantil estatal).
+- **Tres observatorios anunciados o en tramitación:** vivienda turística, incapacidad temporal y prevención del tabaquismo (este, en el proyecto de ley del tabaco). Con el criterio de Costes 2, lo coherente es no crearlos.
 - **Fundación Pluralismo y Convivencia** (Costes 2 y 3).
 - **Agencia Andaluza de Cooperación** (Costes 5).
 - **Instituto de Salud de Andalucía:** no ha arrancado, con 0 € de gasto de personal.
@@ -104,12 +106,14 @@ Estos órganos no tienen presupuesto propio, pero sí coste de personal. Hay un 
 - **Confederaciones hidrográficas: Mantener y no Reformar** (revisión del 13/10/2026; ver arriba).
 - **Instituto de Salud de Andalucía: Suprimir y no Integrar,** porque no ha empezado a funcionar.
 - **AGACAL (Galicia): Mantener,** por la línea de soberanía alimentaria del P100. Podría discutirse frente a la AICA.
+- **Observatorio Nacional de Seguridad Vial: Mantener.** Se llama observatorio, pero no es un órgano consultivo: es la unidad de la DGT que produce la estadística de siniestralidad, lleva el Registro Nacional de Víctimas y prepara los planes de seguridad vial. Pasa la prueba de Costes 2 y 9 (función técnica que nadie más presta). Lo que sobra es el nombre, no la función.
+- **Observatorios no constituidos: Suprimir y no Extinguida.** Las creaciones legales antiguas que nunca llegaron a funcionar (CEMA, Comisión Nacional del Juego, CREA) están en Extinguida. Los tres observatorios de 2025 y 2026 están en marcha ahora, así que el veredicto es una recomendación: no crearlos.
 
 ## Cómo cambiar un veredicto
 
 Todo está en [`scripts/clasificacion3.py`](../scripts/clasificacion3.py), en el diccionario `D`. Cada llamada a `put([...ids], veredicto, tipo de base, referencia, destino, motivo)` fija el veredicto de un grupo de fichas. Para cambiar uno:
 
-1. Mueve el ID a otra llamada `put` o crea una nueva. El script comprueba que las 125 fichas tienen veredicto.
+1. Mueve el ID a otra llamada `put` o crea una nueva. El script comprueba que todas las fichas del inventario (hoja original más altas) tienen veredicto.
 2. Ejecuta `python scripts/run_all.py`.
 3. Revisa los recuentos en la hoja «Entidades» o en el CSV.
 

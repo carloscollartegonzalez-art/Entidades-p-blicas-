@@ -10,6 +10,9 @@ import sys
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(BASE / 'scripts'))
+from inventario import ids_inventario
+N_ESPERADO = len(ids_inventario())
 D = BASE / 'dashboard'
 ENC = 'utf-8'
 
@@ -36,8 +39,8 @@ def main() -> int:
             continue
         if not isinstance(data, list):
             errors.append(f'{path.name}: root must be a JSON array')
-        elif name == 'entidades' and len(data) != 125:
-            errors.append(f'entidades.json: expected 125 rows, got {len(data)}')
+        elif name == 'entidades' and len(data) != N_ESPERADO:
+            errors.append(f'entidades.json: expected {N_ESPERADO} rows (original sheet + altas), got {len(data)}')
 
     # Guard against a workbook rebuilt without the research results (apply.py with a subset of files):
     # the dashboard must have more budgets than the original sheet and a non-empty staff breakdown.

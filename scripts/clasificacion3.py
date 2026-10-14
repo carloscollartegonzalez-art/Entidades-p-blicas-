@@ -11,6 +11,7 @@ BASE = Path(__file__).resolve().parent.parent  # raíz del repositorio
 RES = BASE / 'datos' / 'resultados'
 sys.path.insert(0, str(BASE / 'scripts'))
 from destino_labels import destino_para_mostrar
+from inventario import ids_inventario
 
 prev = {e['ID']: e for e in json.load(open(RES / 'Z_clasificacion_v2.json', encoding='utf-8'))}
 EXP, INF = 'Explícito en el P100', 'Aplicando el criterio del P100'
@@ -54,7 +55,7 @@ put([37, 38], 'Mantener', INF, 'Servicio directo; Menos normas 12 solo cambia el
     'Confederación hidrográfica: organismo autónomo estatal que gestiona el agua de su cuenca; no duplica a ningún organismo autonómico. '
     'La medida 12 de «Menos normas» cambia el régimen de sus informes (silencio favorable y plazo único), pero es un cambio de procedimiento '
     'que afecta a todos los organismos que informan planes, igual que la medida 9 de Costes a la CNMC o la AIReF, que siguen en Mantener. '
-    'Solo Miño-Sil y Cantábrico están en el inventario (creadas o transformadas desde 2006); el resto de cuencas no tiene ficha.')
+    'Solo Miño-Sil y Cantábrico están en el inventario (creadas o transformadas desde 2004); el resto de cuencas no tiene ficha.')
 put([66], 'Reformar', EXP, 'Crecer y producir 5', None,
     'Invierte los fondos del PERTE Chip y Next Tech; el P100 audita el PERTE Chip antes de comprometer un euro más y fija condiciones a quien recibe capital público.')
 put([44], 'Integrar', EXP, 'Derogar el sanchismo; Organización del Estado 5', 'Defensor del Pueblo',
@@ -140,13 +141,32 @@ put([103], 'Mantener', INF, 'Función técnica y sancionadora', None, 'Persigue 
 put([109], 'Mantener', INF, 'Servicio directo', None, 'Gestiona los puertos deportivos vascos con ingresos propios.')
 put([121], 'Mantener', INF, 'Función técnica', None, 'Controla la calidad alimentaria y las denominaciones de origen gallegas, en línea con la soberanía alimentaria del P100.')
 
-assert sorted(D) == list(range(1, 126)), sorted(set(range(1, 126)) - set(D))
+# --- altas del 14/10/2026 (observatorios estatales que faltaban)
+put([126], 'Mantener', INF, 'Costes del Estado 2 y 9 (función técnica que nadie más presta)', None,
+    'No es un órgano consultivo, sino la unidad de la DGT que produce la estadística de siniestralidad, lleva el Registro Nacional de Víctimas '
+    'y prepara los planes de seguridad vial. Lo que sobra es el nombre de observatorio, no la función. Se creó sin aumento de gasto (DA 3.ª RD 1599/2004).')
+put([127, 130, 132], 'Suprimir', EXP, 'Costes del Estado 2', 'Estructura ordinaria del ministerio, si alguna función es imprescindible',
+    'Observatorio o consejo asesor: el P100 los cierra salvo que su ministerio demuestre que su trabajo cambia decisiones o mejora un servicio; publicar informes no cuenta.')
+put([129], 'Suprimir', INF, 'Costes del Estado 2 (aplicado a una sociedad mercantil estatal)', 'Dirección de RTVE, si alguna función es imprescindible',
+    'Observatorio interno de RTVE: su producto son informes y propuestas, que el P100 no cuenta como resultado. Su acuerdo de creación no está publicado.')
+put([128], 'Suprimir', EXP, 'Costes del Estado 2 (creado por ley: se suprime en la ley de la medida 4)', 'Puertos del Estado, que ya elabora el informe anual de competitividad',
+    'Observatorio de 42 miembros que hace recomendaciones no vinculantes sobre precios y calidad de los servicios portuarios; '
+    'el informe anual de competitividad lo elabora Puertos del Estado por ley y puede seguir haciéndolo sin el observatorio.')
+put([131], 'Suprimir', EXP, 'Costes del Estado 2 (creado por ley: se suprime en la ley de la medida 4)', 'Secretaría para la Unidad de Mercado, que ya lo gestiona',
+    'Creado por ley en 2022 para hacer un catálogo de buenas prácticas regulatorias; no funciona como órgano diferenciado: lo gestiona la Secretaría para la Unidad de Mercado.')
+put([133, 134], 'Suprimir', EXP, 'Costes del Estado 2', None,
+    'Observatorio anunciado y no constituido: con el criterio del P100, que cierra los observatorios que no demuestren resultados, lo coherente es no crearlo.')
+put([135], 'Suprimir', EXP, 'Costes del Estado 2 (los creados por ley se suprimen en la ley de la medida 4)', None,
+    'Observatorio que el proyecto de ley del tabaco vuelve a crear, tras su supresión en 2014: con el criterio del P100 lo coherente es retirarlo del proyecto.')
+
+IDS = ids_inventario()
+assert sorted(D) == IDS, sorted(set(IDS) ^ set(D))
 BIN = {'Mantener': 'Útil', 'Reformar': 'Útil', 'Integrar': 'No útil', 'Suprimir': 'No útil',
        'Pendiente de decisión': 'Sin decisión en el P100', 'Extinguida': 'Extinguida'}
 out = []
 from collections import Counter
 cnt = Counter()
-for i in range(1, 126):
+for i in IDS:
     v, k, ref, dest, why = D[i]
     cnt[v] += 1
     u = dict(prev[i]['updates'])

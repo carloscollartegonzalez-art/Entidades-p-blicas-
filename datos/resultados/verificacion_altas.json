@@ -1,0 +1,141 @@
+[
+ {
+  "candidato": "Observatorio de Salud y Cambio Climático (OSCC)",
+  "norma_ok": "COINCIDE",
+  "fecha_ok": "COINCIDE",
+  "periodo_ok": "COINCIDE",
+  "gasto_ok": "COINCIDE",
+  "estado_ok": "COINCIDE",
+  "correcciones": "Ninguna. Verificado en el PDF del acuerdo: certificación del Secretario del Consejo de Ministros («en la reunión del Consejo de Ministros celebrada el día dieciocho de julio de dos mil veintitrés se ha aprobado el Acuerdo por el que se crea el Observatorio de Salud y Cambio Climático»); apartado Segundo («órgano colegiado, de los previstos en el artículo 22.3 de la Ley 40/2015»; adscrito a Sanidad a través de la DG de Salud Pública); apartado Séptimo.1 («no supondrá incremento alguno del gasto público y funcionará con los medios personales y materiales de los Ministerios y organismos que participan en su composición») y Séptimo.2 («no percibirán remuneración ni dieta alguna por su pertenencia al grupo»); Cuarto.6 (secretaría del Ministerio de Sanidad). Nota MITECO de 13/02/2024: «la segunda reunión» celebrada «ayer lunes» (12/02/2024); no menciona la reunión constitutiva. https://www.sanidad.gob.es/areas/sanidadAmbiental/observatorioSaludCambioClimatico/docs/acuerdo_OSCC.pdf",
+  "fuentes": [
+   "https://www.sanidad.gob.es/areas/sanidadAmbiental/observatorioSaludCambioClimatico/docs/acuerdo_OSCC.pdf",
+   "https://www.miteco.gob.es/es/prensa/ultimas-noticias/2024/febrero/convocado-el-observatorio-de-salud-y-cambio-climatico.html"
+  ]
+ },
+ {
+  "candidato": "Observatorio para la Prevención del Tabaquismo",
+  "norma_ok": "COINCIDE",
+  "fecha_ok": "COINCIDE",
+  "periodo_ok": "COINCIDE",
+  "gasto_ok": "COINCIDE",
+  "estado_ok": "COINCIDE",
+  "correcciones": "Sin correcciones de fondo. BOCG Congreso, serie A, núm. 111-1, 11/09/2026, expte. 121/000110: el apartado «Once» del artículo único da nueva redacción al art. 16 y lo define como «órgano colegiado interadministrativo», sin adscripción expresa. La exposición de motivos dice que el Observatorio «fue suprimido mediante la Ley 15/2014, de 16 de septiembre». El proyecto no contiene cláusula de gasto, medios ni retribución; la única referencia económica es el art. 17 (sanciones). Competencia legislativa plena de la Comisión de Sanidad; enmiendas hasta el 29/09/2026. La fecha del Consejo de Ministros (21/07/2026) se confirma en fuente oficial (resumen de La Moncloa: aprobó remitir a las Cortes «el proyecto de ley que actualiza la normativa actual frente al tabaquismo, aprobada en 2005»), así que la cita de prensa se puede sustituir por esta. Matiz menor: el BOCG fecha el 08/09/2026 la certificación del Secretario General y no indica de forma expresa la fecha de la reunión de la Mesa.",
+  "fuentes": [
+   "https://www.congreso.es/public_oficiales/L15/CONG/BOCG/A/BOCG-15-A-111-1.PDF",
+   "https://www.lamoncloa.gob.es/consejodeministros/resumenes/paginas/2026/210726-rueda-prensa-ministros.aspx"
+  ]
+ },
+ {
+  "candidato": "Observatorio de Salud de las Mujeres (Ministerio de Sanidad)",
+  "norma_ok": "COINCIDE",
+  "fecha_ok": "COINCIDE",
+  "periodo_ok": "COINCIDE",
+  "gasto_ok": "COINCIDE",
+  "estado_ok": "COINCIDE",
+  "correcciones": "Precisiones menores. (1) Adscripción literal en la Orden PCI/462/2019 (BOE núm. 97, 23/04/2019, pp. 41662-41666), apartado Tercero: «Ministerio de Sanidad, Consumo y Bienestar Social», a través de la DG de Salud Pública, Calidad e Innovación (la ficha dice «Ministerio de Sanidad»). (2) El preámbulo dice que el Acuerdo de 05/03/2004 «contemplaba la creación» del Observatorio de Salud de la Mujer y que la Ley 15/2014 estableció su «integración funcional» en el Observatorio de la Salud; conviene usar esta fórmula en lugar de «suprimido». (3) El apartado Séptimo (sin subapartados) dice que su funcionamiento «no supondrá incremento del gasto público» y se atiende con los medios existentes del Ministerio; no regula dietas. Coincide. (4) Estado: puede añadirse la respuesta parlamentaria del Gobierno de 08/10/2024, según la cual el Observatorio «sigue siendo parte de la estructura del Ministerio de Sanidad». No da fechas de reunión del Pleno. https://boe.es/boe/dias/2019/04/23/pdfs/BOE-A-2019-6060.pdf ; https://www.congreso.es/entradap/l15p/e4/e_0043016_n_000.pdf",
+  "fuentes": [
+   "https://boe.es/boe/dias/2019/04/23/pdfs/BOE-A-2019-6060.pdf",
+   "https://www.lamoncloa.gob.es/consejodeministros/Paginas/enlaces/010319-enlaceobservatorio.aspx",
+   "https://www.congreso.es/entradap/l15p/e4/e_0043016_n_000.pdf"
+  ]
+ },
+ {
+  "candidato": "Observatorio Militar para la Igualdad entre Mujeres y Hombres en las Fuerzas Armadas",
+  "norma_ok": "COINCIDE",
+  "fecha_ok": "DISCREPA",
+  "periodo_ok": "COINCIDE",
+  "gasto_ok": "COINCIDE",
+  "estado_ok": "COINCIDE",
+  "correcciones": "(1) Fecha legal: cambiar 2005-03-07 por 2005-03-04. El 07/03/2005 es la fecha de las órdenes de publicación; el Acuerdo del Consejo de Ministros es de 4 de marzo de 2005 (BOE núm. 57, 08/03/2005). El periodo no cambia (Zapatero). (2) Norma: además de la Orden PRE/525/2005 (apdo. 1.6.a: «Se crea el Observatorio de la Mujer en las Fuerzas Armadas»; verificado), conviene citar como norma principal la Orden DEF/524/2005, de 7 de marzo (BOE-A-2005-3769), que publica el Acuerdo del CM de 4 de marzo de 2005 sobre la incorporación y la integración de la mujer en las FAS. Su anexo I, punto 1, dice: «Se crea el Centro de estudio sobre la situación de la mujer en las Fuerzas Armadas (Observatorio de la Mujer en las FAS)», dependiente de la Subsecretaría de Defensa. Esto resuelve el «no encontrado» de la ficha sobre la norma que creó el «Centro de Estudio» citado en el preámbulo de 2019. (3) Gasto verificado en la Orden DEF/111/2019 (BOE-A-2019-1785): art. 3.2 («será atendido con los medios materiales y recursos humanos existentes en el Ministerio de Defensa»), art. 4.2 (RPT) y disposición adicional única («sin que la aprobación de esta norma suponga incremento de gasto público»). No hay mención a retribuciones de los vocales. https://www.boe.es/boe/dias/2005/03/08/pdfs/A08109-08110.pdf",
+  "fuentes": [
+   "https://www.boe.es/boe/dias/2019/02/09/pdfs/BOE-A-2019-1785.pdf",
+   "https://www.boe.es/boe/dias/2005/03/08/pdfs/A08109-08110.pdf",
+   "https://www.boe.es/boe/dias/2005/03/08/pdfs/BOE-S-2005-57.pdf",
+   "https://www.mites.gob.es/ficheros/ministerio/igualdad/Orden_PRE525_2005.pdf",
+   "https://working.mde.es/Galerias/gabinete/red/2020/01/p-18-19-21-red-368-aramendia.pdf"
+  ]
+ },
+ {
+  "candidato": "Observatorio de Igualdad de la Corporación RTVE",
+  "norma_ok": "NO VERIFICABLE",
+  "fecha_ok": "COINCIDE",
+  "periodo_ok": "COINCIDE",
+  "gasto_ok": "COINCIDE",
+  "estado_ok": "COINCIDE",
+  "correcciones": "No se ha localizado el acuerdo interno de creación, y la condición 3 sigue sin acreditarse con el acto. La fecha procede de una intervención parlamentaria, no de un acto oficial de RTVE. DSCG-14-CM-108 (14/02/2022): en la p. 4, la Sra. Guinart Moreno (GS) dice «en febrero de 2018 se creó el observatorio» y que «no fue hasta bastante tiempo más tarde cuando empezó realmente a funcionar»; en la p. 3 lo sitúa en el marco del Pacto de Estado de 2017; en la p. 7 la Sra. Salanueva (GP) afirma que se creó «aunque gobernaba entonces el Partido Popular», lo que es coherente con el periodo Rajoy. Estado: en la p. 3 consta que en mayo de 2021 se pidió la comparecencia de su presidenta sobre las memorias de 2018-2020, lo que respalda que estaba activo. Recomendación: mantener la reserva y redactar la fecha legal como «2018-02 (según intervención parlamentaria)». https://www.congreso.es/public_oficiales/L14/CORT/DS/CM/DSCG-14-CM-108.PDF",
+  "fuentes": [
+   "https://www.congreso.es/public_oficiales/L14/CORT/DS/CM/DSCG-14-CM-108.PDF"
+  ]
+ },
+ {
+  "candidato": "Observatorio Permanente del Mercado de los Servicios Portuarios",
+  "norma_ok": "DISCREPA",
+  "fecha_ok": "DISCREPA",
+  "periodo_ok": "COINCIDE",
+  "gasto_ok": "COINCIDE",
+  "estado_ok": "COINCIDE",
+  "correcciones": "(1) El RDLeg 2/2011 es un texto refundido: no crea el órgano, solo refunde normas anteriores. La creación legal original es la Ley 48/2003, de 26 de noviembre (BOE núm. 284, 27/11/2003, BOE-A-2003-21615). Su exposición de motivos dice que la ley instituye «un Observatorio Permanente del mercado de los servicios portuarios básicos, órgano adscrito a Puertos del Estado», y la Memoria 2014 del Observatorio dice que la Ley 48/2003 lo creó. La Ley 48/2003 es de la etapa Aznar, anterior al 17/04/2004. (2) No se ha podido comprobar en texto oficial que el observatorio de 2003 no llegara a constituirse ni que la Ley 33/2010, de 5 de agosto (BOE-A-2010-12703), lo «recreara»: los textos del BOE se cortan antes del articulado pertinente, y la Memoria 2022 no menciona ni la Ley 48/2003 ni la Ley 33/2010. Si se mantiene la tesis de la recreación, la fecha legal debe ser la de la Ley 33/2010 (2010-08-05, Zapatero) y no la del texto refundido (2011-09-05). Si no se acredita, la creación es de 2003 (fuera de rango) y lo único posterior es la constitución efectiva por el Consejo Rector el 29/06/2012 (Rajoy). Recomendación: reformular «Norma fundacional» como «Ley 48/2003 (creación); Ley 33/2010 (nueva redacción, pendiente de verificar); art. 123 TRLPEMM (refundición)» y revisar si la entrada procede. (3) Gasto: la transcripción del art. 123.1 en la Memoria 2022 («Se crea un Observatorio Permanente del Mercado de los Servicios Portuarios, adscrito a Puertos del Estado») no contiene cláusula de gasto, y las memorias no mencionan presupuesto ni dietas. Coincide. (4) Estado: la constitución el 29/06/2012 y el primer pleno el 11/12/2012 se confirman en las Memorias 2014 y 2022. https://www.boe.es/buscar/pdf/2003/BOE-A-2003-21615-consolidado.pdf",
+  "fuentes": [
+   "https://www.boe.es/eli/es/l/2003/11/26/48",
+   "https://www.boe.es/buscar/pdf/2003/BOE-A-2003-21615-consolidado.pdf",
+   "https://www.boe.es/boe/dias/2011/10/20/pdfs/BOE-A-2011-16467.pdf",
+   "https://www.boe.es/eli/es/l/2010/08/05/33",
+   "https://observatorio.puertos.es/DOC_PUBLICOS/MEMORIA%20ANUAL%20OBSERVATORIO%202014.pdf",
+   "https://observatorio.puertos.es/DOC_PUBLICOS/MEMORIA%20ANUAL%20OBSERVATORIO%202022.pdf"
+  ]
+ },
+ {
+  "candidato": "Observatorio de Buenas Prácticas Regulatorias",
+  "norma_ok": "COINCIDE",
+  "fecha_ok": "COINCIDE",
+  "periodo_ok": "COINCIDE",
+  "gasto_ok": "COINCIDE",
+  "estado_ok": "COINCIDE",
+  "correcciones": "Sin correcciones de fondo. En el BOE consolidado de la Ley 20/2013, la DA 9.ª («Creación del Observatorio de Buenas Prácticas Regulatorias») dice: «Se crea el Observatorio de Buenas Prácticas Regulatorias en el marco de la Conferencia Sectorial para la Mejora Regulatoria y el Clima de Negocios» y «Este órgano estará gestionado por la Secretaría para la Unidad de Mercado». No menciona composición, gasto, medios ni retribución. En el PDF del BOE de la Ley 18/2022 (BOE núm. 234, 29/09/2022), el art. 6.Seis da al art. 11.b de la Ley 20/2013 la redacción «Gestión del Observatorio de Buenas Prácticas Regulatorias.». Limitaciones: el número de apartado «Veintiuno» del art. 6 y la ausencia de cláusula general de no incremento de gasto en toda la Ley 18/2022 no se han podido leer en el texto oficial, porque se corta en el apartado Once. Conviene sustituir la cita de iberley por la URL ELI consolidada. https://www.boe.es/eli/es/l/2013/12/09/20/con",
+  "fuentes": [
+   "https://www.boe.es/eli/es/l/2013/12/09/20/con",
+   "https://www.boe.es/boe/dias/2022/09/29/pdfs/BOE-A-2022-15818.pdf",
+   "https://www.hacienda.gob.es/DocLeyes/REPOSITORIO%20NORMATIVA/79811.htm"
+  ]
+ },
+ {
+  "candidato": "Observatorio de la Vivienda Turística",
+  "norma_ok": "NO VERIFICABLE",
+  "fecha_ok": "COINCIDE",
+  "periodo_ok": "COINCIDE",
+  "gasto_ok": "COINCIDE",
+  "estado_ok": "COINCIDE",
+  "correcciones": "La nota de Mintur de 21/10/2025 dice «El Gobierno aprueba la creación de un Observatorio de la Vivienda Turística» para «elaborar un atlas de intensidad turística». Atribuye la aprobación al Gobierno, pero no dice de forma expresa que la acordara el Consejo de Ministros ni con qué instrumento. Solo la prensa (RTVC) habla de aprobación por el Consejo de Ministros. No se pudo abrir la Referencia del CM de 21/10/2025 en La Moncloa (permiso no concedido). La Moncloa (08/10/2025) lo sitúa «en la Secretaría de Estado de Turismo». Ninguna fuente menciona presupuesto. Estado: la nota de Mintur de 05/05/2026 sobre la Interministerial de Turismo no menciona el Observatorio y dice que «se está trabajando en el desarrollo de un Atlas de Intensidad Turística»; conviene añadirla como prueba de que no estaba constituido en mayo de 2026. Recomendación: redactar la norma como «aprobación anunciada por el Gobierno el 21/10/2025, junto a la Estrategia España Turismo 2030 (instrumento no identificado)». https://www.mintur.gob.es/es-es/gabineteprensa/notasprensa/2026/documents/20260505%20ndp%20interministerial%20de%20turismo%20y%20estrategia%202030.pdf",
+  "fuentes": [
+   "https://www.mintur.gob.es/es-es/gabineteprensa/notasprensa/2025/documents/20251021%20estrategia%20turismo%20sostenible.pdf",
+   "https://www.lamoncloa.gob.es/presidente/actividades/paginas/2025/081025-sanchez-convencion-turespana-caceres.aspx",
+   "https://www.mintur.gob.es/es-es/gabineteprensa/notasprensa/2026/documents/20260505%20ndp%20interministerial%20de%20turismo%20y%20estrategia%202030.pdf",
+   "https://rtvc.es/creacion-observatorio-vivienda-turistica-pendiente-aprobacion-21-octubre-2025/"
+  ]
+ },
+ {
+  "candidato": "Observatorio Nacional de Seguridad Vial (DGT)",
+  "norma_ok": "COINCIDE",
+  "fecha_ok": "COINCIDE",
+  "periodo_ok": "COINCIDE",
+  "gasto_ok": "COINCIDE",
+  "estado_ok": "COINCIDE",
+  "correcciones": "Ninguna. RD 1599/2004, de 2 de julio (BOE núm. 160, 03/07/2004, BOE-A-2004-12473): el art. 10.3 dice que las funciones del párrafo b) se ejercen a través del ONSV, «que se crea por este real decreto», «cuya estructura se determinará en la correspondiente relación de puestos de trabajo». La DA 3.ª, «No incremento de gasto público», dice que su aplicación «no supondrá incremento de gasto público». Fue derogado el 12/09/2006 por el RD 991/2006. La web de la DGT incluye el ONSV entre sus órganos y cita el «Real Decreto 328/2026, de 22 de abril», que modifica el «Real Decreto 207/2024, de 27 de febrero». https://www.boe.es/eli/es/rd/2004/07/02/1599",
+  "fuentes": [
+   "https://www.boe.es/eli/es/rd/2004/07/02/1599",
+   "https://www.dgt.es/conoce-la-dgt/quienes-somos/estructura/index.html"
+  ]
+ },
+ {
+  "candidato": "Observatorio Estatal de la Incapacidad Temporal",
+  "norma_ok": "COINCIDE",
+  "fecha_ok": "COINCIDE",
+  "periodo_ok": "COINCIDE",
+  "gasto_ok": "COINCIDE",
+  "estado_ok": "COINCIDE",
+  "correcciones": "Ninguna. Nota de La Moncloa de 09/02/2026: puesta en marcha «de manera inminente»; orden ministerial que «empezará a tramitarse de inmediato mediante una consulta pública previa»; «órgano técnico estratégico de análisis» adscrito a la SESSP. No menciona financiación, medios ni retribución. Las búsquedas de esta verificación tampoco han encontrado orden de creación, consulta pública ni constitución hasta el 14/10/2026. Lo que sí apareció es la Orden ISM/541/2026, que trata de notificaciones electrónicas y no tiene relación. La entrada se sostiene solo si se aceptan creaciones anunciadas y no constituidas, porque no hay norma. https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/Paginas/2026/090226-observatorio-incapacidad-temporal.aspx",
+  "fuentes": [
+   "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/Paginas/2026/090226-observatorio-incapacidad-temporal.aspx"
+  ]
+ }
+]

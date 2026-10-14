@@ -1908,5 +1908,185 @@
    "Tema funcional": "Agencias de la energía",
    "Organismos del mismo tema (Estado + CCAA, verificados)": 11
   }
+ },
+ {
+  "ID": 126,
+  "updates": {
+   "Clasificación: útil / no útil": "Útil",
+   "Clasificación: veredicto": "Útil",
+   "Clasificación: función": "Servicio público directo",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Unidad de la DGT que produce la estadística de siniestralidad y el Registro Nacional de Víctimas; sin presupuesto ni plantilla diferenciados publicados.",
+   "Tema funcional": "Seguridad vial (estadística y registro de víctimas)",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Es en sí una unidad de la DGT (OA Jefatura Central de Tráfico). puestos asignados según fuente oficial: Puestos en la RPT de la Jefatura Central de Tráfico (art. 10.3 RD 1599/2004); número no localizado. gasto con nombre propio: No; DA 3.ª RD 1599/2004: sin incremento de gasto público."
+  },
+  "fuentes_nuevas": [
+   "https://www.boe.es/buscar/doc.php?id=BOE-A-2004-12473"
+  ]
+ },
+ {
+  "ID": 127,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Prescindible",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Órgano consultivo o de participación sin medios propios. Órgano colegiado asesor de la Subsecretaría de Defensa, sin medios propios (Orden DEF/111/2019); activo en 2020.",
+   "Tema funcional": "Igualdad (sectorial)",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Secretaría Permanente de Igualdad (División de Igualdad y Apoyo al Personal, DG de Personal), con medios personales fijados en RPT/RPM (art. 4.2 Orden DEF/111/2019). vocales: 17 vocales titulares con suplente más presidencia (Subsecretario), vicepresidencia (DG de Personal) y titular de la División de Igualdad (art. 1.2-1.3). gasto con nombre propio: No: medios existentes de Defensa, «sin que la aprobación de esta norma suponga incremento de gasto público» (disposición adicional única; art. 3.2)."
+  },
+  "fuentes_nuevas": [
+   "https://www.boe.es/buscar/doc.php?id=BOE-A-2019-1785"
+  ]
+ },
+ {
+  "ID": 128,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Prescindible",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Órgano consultivo o de participación sin medios propios. Órgano consultivo adscrito a Puertos del Estado, sin medios propios; 19 plenos hasta 2022.",
+   "Tema funcional": "Servicios portuarios",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Puertos del Estado: presidencia (presidente de Puertos del Estado), secretaría (cargo de Puertos del Estado) y Oficina Técnica de apoyo contratada (Memoria 2022, p. 20). vocales: 41 vocales + presidente en 2022 (recuento propio, Memoria 2022 pp. 7-9); 36 vocales titulares en 2014 (recuento propio, Memoria 2014). gasto con nombre propio: No: contrato de Oficina Técnica y estudios citados sin importe."
+  },
+  "fuentes_nuevas": [
+   "https://observatorio.puertos.es/DOC_PUBLICOS/MEMORIA%20ANUAL%20OBSERVATORIO%202022.pdf"
+  ]
+ },
+ {
+  "ID": 129,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Prescindible",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Órgano consultivo o de participación sin medios propios. Órgano interno consultivo de RTVE; acuerdo de creación no localizado; activo en 2021.",
+   "Tema funcional": "Igualdad (sectorial)",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: No verificada (sus resoluciones llevan cabecera de la Secretaría General)."
+  },
+  "fuentes_nuevas": [
+   "https://www.congreso.es/public_oficiales/L14/CORT/DS/CM/DSCG-14-CM-108.PDF"
+  ]
+ },
+ {
+  "ID": 130,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Prescindible",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "No acreditada",
+   "Clasificación: motivo": "Órgano consultivo o de participación sin medios propios. Órgano colegiado consultivo de Sanidad sin medios propios; reuniones del Pleno no verificadas.",
+   "Tema funcional": "Igualdad (sectorial)",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Equipo Técnico Permanente coordinado por la DG de Salud Pública, Calidad e Innovación, formado por vocales del Ministerio; secretaría: funcionario de la DG, con voz y sin voto (apartados Quinto y Sexto). vocales: Presidencia, dos vicepresidencias y 21 vocalías según La Moncloa (Ministerio, ENS, INGESA, Instituto de la Mujer, DGVG, servicios de salud autonómicos, FEMP y organizaciones de mujeres). gasto con nombre propio: No: «no supondrá incremento del gasto público»; medios existentes del Ministerio (apartado Séptimo)."
+  },
+  "fuentes_nuevas": [
+   "https://boe.es/boe/dias/2019/04/23/pdfs/BOE-A-2019-6060.pdf"
+  ]
+ },
+ {
+  "ID": 131,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Prescindible",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "No acreditada",
+   "Clasificación: motivo": "Órgano consultivo o de participación sin medios propios. Creado por ley en 2022; funcionamiento como órgano diferenciado no confirmado (lo gestiona la Secretaría para la Unidad de Mercado).",
+   "Tema funcional": "Mejora regulatoria",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Secretaría para la Unidad de Mercado (Ministerio de Economía), por mandato legal (DA 9.ª y art. 11.b Ley 20/2013). vocales: La ley no prevé vocales propios; actúa en el marco de la Conferencia Sectorial."
+  },
+  "fuentes_nuevas": [
+   "https://www.boe.es/buscar/act.php?id=BOE-A-2022-15818"
+  ]
+ },
+ {
+  "ID": 132,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Prescindible",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Órgano consultivo o de participación sin medios propios. Órgano colegiado consultivo sin medios propios ni retribución de sus miembros; segunda reunión en febrero de 2024.",
+   "Tema funcional": "Salud y cambio climático",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Secretaría a cargo del Ministerio de Sanidad: una persona de la DG de Salud Pública designada por la presidencia (apartado Cuarto.6); grupos de trabajo coordinables por el ISCIII (Quinto). vocales: Presidencia (DG Salud Pública), vicepresidencia (DG Oficina Española de Cambio Climático) y 10 vocalías con rango mínimo de subdirector general (apartado Cuarto.1). miembros: No: «no percibirán remuneración ni dieta alguna» (apartado Séptimo.2). gasto con nombre propio: No: «no supondrá incremento alguno del gasto público»; medios de los ministerios y organismos participantes (apartado Séptimo.1)."
+  },
+  "fuentes_nuevas": [
+   "https://www.sanidad.gob.es/areas/sanidadAmbiental/observatorioSaludCambioClimatico/docs/acuerdo_OSCC.pdf"
+  ]
+ },
+ {
+  "ID": 133,
+  "updates": {
+   "Clasificación: útil / no útil": "Extinguida",
+   "Clasificación: veredicto": "Extinguida",
+   "Clasificación: función": "Extinguida o no constituida",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "No aplica (no vigente)",
+   "Clasificación: motivo": "Creación anunciada por el Gobierno el 21/10/2025; no constituido a 14/10/2026.",
+   "Tema funcional": "Vivienda turística",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Secretaría de Estado de Turismo (según La Moncloa, 08/10/2025)."
+  },
+  "fuentes_nuevas": [
+   "https://www.lamoncloa.gob.es/presidente/actividades/paginas/2025/081025-sanchez-convencion-turespana-caceres.aspx"
+  ]
+ },
+ {
+  "ID": 134,
+  "updates": {
+   "Clasificación: útil / no útil": "Extinguida",
+   "Clasificación: veredicto": "Extinguida",
+   "Clasificación: función": "Extinguida o no constituida",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "No aplica (no vigente)",
+   "Clasificación: motivo": "Anunciado el 09/02/2026; orden de creación no publicada a 14/10/2026.",
+   "Tema funcional": "Incapacidad temporal",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: No consta (orden no publicada); adscripción anunciada a la Secretaría de Estado de la Seguridad Social y Pensiones. vocales: Anunciados: MISSM (SESSP, DGOSS, INSS), Sanidad (SE de Sanidad, DG de Salud Pública y Equidad en Salud, Comisionado de Salud Mental), CEOE, CEPYME, CCOO, UGT; número de vocales no fijado. gasto con nombre propio: No: sin norma, convenio, contrato ni encargo localizados."
+  },
+  "fuentes_nuevas": [
+   "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/Paginas/2026/090226-observatorio-incapacidad-temporal.aspx"
+  ]
+ },
+ {
+  "ID": 135,
+  "updates": {
+   "Clasificación: útil / no útil": "Extinguida",
+   "Clasificación: veredicto": "Extinguida",
+   "Clasificación: función": "Extinguida o no constituida",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "No aplica (no vigente)",
+   "Clasificación: motivo": "Recreación incluida en el proyecto de ley del tabaco (Consejo de Ministros 21/07/2026), en tramitación en el Congreso.",
+   "Tema funcional": "Tabaquismo",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: No prevista en el proyecto (sin adscripción ni secretaría fijadas). puestos asignados según fuente oficial: Ninguno (órgano no constituido). vocales: Sanidad (DG de Salud Pública y Equidad en Salud), Comisionado para el Mercado de Tabacos, MAPA, CICC, ISCIII, CCAA, sociedades científicas, asociaciones de consumidores y ONG (nuevo art. 16). gasto con nombre propio: No: el proyecto no contiene cláusula de gasto ni de medios; MAIN no consultada."
+  },
+  "fuentes_nuevas": [
+   "https://www.congreso.es/public_oficiales/L15/CONG/BOCG/A/BOCG-15-A-111-1.PDF"
+  ]
  }
 ]

@@ -7,7 +7,9 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent  # raíz del repositorio
 RES = BASE / 'datos' / 'resultados'
 DASH = BASE / 'dashboard' / 'datos'
-import json, glob
+import json, glob, sys
+sys.path.insert(0, str(BASE / 'scripts'))
+from inventario import ids_inventario
 from collections import Counter
 
 old = {e['ID']: e['updates'] for e in json.load(open(RES / 'Z_clasificacion_v1.json', encoding='utf-8'))}
@@ -116,8 +118,15 @@ M = {
  117: (F, ID, 'paralelo', None), 118: (S, TI, 'propio', None), 119: (X, EN, None, None), 120: (S, TI, 'propio', 'arranque'),
  121: (R, 'Calidad alimentaria', None, None), 122: (F, EN, 'paralelo', None), 123: (C, IG, 'paralelo', None),
  124: (S, TI, 'propio', None), 125: (F, EN, 'paralelo', None),
+ # altas del 14/10/2026
+ 126: (S, 'Seguridad vial (estadística y registro de víctimas)', None, None),
+ 127: (C, 'Igualdad (sectorial)', None, None), 128: (C, 'Servicios portuarios', None, None),
+ 129: (C, 'Igualdad (sectorial)', None, None), 130: (C, 'Igualdad (sectorial)', None, None),
+ 131: (C, 'Mejora regulatoria', None, None), 132: (C, 'Salud y cambio climático', None, None),
+ 133: (X, 'Vivienda turística', None, None), 134: (X, 'Incapacidad temporal', None, None),
+ 135: (X, 'Tabaquismo', None, None),
 }
-assert sorted(M) == list(range(1, 126))
+assert sorted(M) == ids_inventario(), set(ids_inventario()) ^ set(M)
 
 
 def dup_text(i, tema, kind):
@@ -174,7 +183,11 @@ for i, (fn, tema, kind, ov) in sorted(M.items()):
     }})
 
 # support of consultative bodies
-ap = {e['ID']: e for e in json.load(open(RES / 'C_apoyo.json', encoding='utf-8'))}
+ap = {}
+for f in sorted(glob.glob(str(RES / 'C_apoyo*.json'))):   # C_apoyo.json (encargo 26) and C_apoyo_altas.json (altas)
+    for e in json.load(open(f, encoding='utf-8')):
+        assert e['ID'] not in ap, e['ID']
+        ap[e['ID']] = e
 for e in out:
     a = ap.get(e['ID'])
     if not a:

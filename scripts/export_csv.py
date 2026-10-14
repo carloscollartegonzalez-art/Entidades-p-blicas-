@@ -1,11 +1,11 @@
 """Exports a flat CSV of the classification (one row per entity) for quick reading on GitHub or in any spreadsheet.
-Usage: python3 scripts/export_csv.py [salida/Entidades_publicas_poder_y_presupuesto_v5.xlsx]"""
+Usage: python3 scripts/export_csv.py [salida/Entidades_publicas_poder_y_presupuesto_v6.xlsx]"""
 import csv, sys
 from pathlib import Path
 import openpyxl
 
 BASE = Path(__file__).resolve().parent.parent
-src = sys.argv[1] if len(sys.argv) > 1 else BASE / 'salida' / 'Entidades_publicas_poder_y_presupuesto_v5.xlsx'
+src = sys.argv[1] if len(sys.argv) > 1 else BASE / 'salida' / 'Entidades_publicas_poder_y_presupuesto_v6.xlsx'
 ws = openpyxl.load_workbook(src, data_only=True)['Hoja 1']
 h = {ws.cell(1, c).value: c for c in range(1, ws.max_column + 1)}
 cols = [('ID', 'ID'), ('Nombre', 'Nombre'), ('Ámbito', 'Ámbito'), ('Comunidad autónoma', 'Comunidad autónoma'),
