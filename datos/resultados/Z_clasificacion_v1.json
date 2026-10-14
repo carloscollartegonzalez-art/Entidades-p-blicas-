@@ -1123,5 +1123,95 @@
    "Clasificación: actividad reciente": "Parcial",
    "Clasificación: motivo": "Proyectos e iniciativa energética pública (28,3 M)."
   }
+ },
+ {
+  "ID": 126,
+  "updates": {
+   "Clasificación: útil / prescindible": "Útil",
+   "Clasificación: nivel": "B. Función real, pequeña o en arranque",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Unidad de la DGT que produce la estadística de siniestralidad y el Registro Nacional de Víctimas; sin presupuesto ni plantilla diferenciados publicados."
+  }
+ },
+ {
+  "ID": 127,
+  "updates": {
+   "Clasificación: útil / prescindible": "Prescindible",
+   "Clasificación: nivel": "C. Consultivo, observatorio o foro sin medios propios",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Órgano colegiado asesor de la Subsecretaría de Defensa, sin medios propios (Orden DEF/111/2019); activo en 2020."
+  }
+ },
+ {
+  "ID": 128,
+  "updates": {
+   "Clasificación: útil / prescindible": "Prescindible",
+   "Clasificación: nivel": "C. Consultivo, observatorio o foro sin medios propios",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Órgano consultivo adscrito a Puertos del Estado, sin medios propios; 19 plenos hasta 2022."
+  }
+ },
+ {
+  "ID": 129,
+  "updates": {
+   "Clasificación: útil / prescindible": "Prescindible",
+   "Clasificación: nivel": "C. Consultivo, observatorio o foro sin medios propios",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Órgano interno consultivo de RTVE; acuerdo de creación no localizado; activo en 2021."
+  }
+ },
+ {
+  "ID": 130,
+  "updates": {
+   "Clasificación: útil / prescindible": "Prescindible",
+   "Clasificación: nivel": "C. Consultivo, observatorio o foro sin medios propios",
+   "Clasificación: actividad reciente": "No acreditada",
+   "Clasificación: motivo": "Órgano colegiado consultivo de Sanidad sin medios propios; reuniones del Pleno no verificadas."
+  }
+ },
+ {
+  "ID": 131,
+  "updates": {
+   "Clasificación: útil / prescindible": "Prescindible",
+   "Clasificación: nivel": "C. Consultivo, observatorio o foro sin medios propios",
+   "Clasificación: actividad reciente": "No acreditada",
+   "Clasificación: motivo": "Creado por ley en 2022; funcionamiento como órgano diferenciado no confirmado (lo gestiona la Secretaría para la Unidad de Mercado)."
+  }
+ },
+ {
+  "ID": 132,
+  "updates": {
+   "Clasificación: útil / prescindible": "Prescindible",
+   "Clasificación: nivel": "C. Consultivo, observatorio o foro sin medios propios",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Órgano colegiado consultivo sin medios propios ni retribución de sus miembros; segunda reunión en febrero de 2024."
+  }
+ },
+ {
+  "ID": 133,
+  "updates": {
+   "Clasificación: útil / prescindible": "Prescindible",
+   "Clasificación: nivel": "D. Extinguida o no constituida",
+   "Clasificación: actividad reciente": "No aplica (no vigente)",
+   "Clasificación: motivo": "Creación anunciada por el Gobierno el 21/10/2025; no constituido a 14/10/2026."
+  }
+ },
+ {
+  "ID": 134,
+  "updates": {
+   "Clasificación: útil / prescindible": "Prescindible",
+   "Clasificación: nivel": "D. Extinguida o no constituida",
+   "Clasificación: actividad reciente": "No aplica (no vigente)",
+   "Clasificación: motivo": "Anunciado el 09/02/2026; orden de creación no publicada a 14/10/2026."
+  }
+ },
+ {
+  "ID": 135,
+  "updates": {
+   "Clasificación: útil / prescindible": "Prescindible",
+   "Clasificación: nivel": "D. Extinguida o no constituida",
+   "Clasificación: actividad reciente": "No aplica (no vigente)",
+   "Clasificación: motivo": "Recreación incluida en el proyecto de ley del tabaco (Consejo de Ministros 21/07/2026), en tramitación en el Congreso."
+  }
  }
 ]

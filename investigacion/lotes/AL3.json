@@ -1,0 +1,30 @@
+[
+ {
+  "candidato": "Observatorio Estatal de la Incapacidad Temporal",
+  "pistas": "Anunciado 09/02/2026 por el Ministerio de Inclusión (nota de La Moncloa): 'órgano técnico estratégico de análisis adscrito a la Secretaría de Estado de la Seguridad Social y Pensiones'; se regulará por orden ministerial (consulta pública previa). Posible resolución en BOE https://www.boe.es/eli/es/res/2026/05/28/(3) — verificar si es su creación. Miembros: Inclusión, Sanidad, CEOE, CEPYME, CCOO, UGT. Podría emitir informes preceptivos."
+ },
+ {
+  "candidato": "Observatorio Estatal de Condiciones de Trabajo (INSST)",
+  "pistas": "Instituto Nacional de Seguridad y Salud en el Trabajo. Verificar si es un órgano con norma o una sección web/línea de estudios, y su fecha."
+ },
+ {
+  "candidato": "Observatorio Nacional de Sequías e Inundaciones",
+  "pistas": "Sin datos en el catálogo. Verificar si existe como órgano público estatal (MITECO) y su norma."
+ },
+ {
+  "candidato": "Observatorio de Museos de España",
+  "pistas": "Ministerio de Cultura; posible relación con el Real Decreto 1305/2009, de 31 de julio (Red de Museos de España) o creación en 2007-2009. Verificar norma, naturaleza y fecha."
+ },
+ {
+  "candidato": "Observatorio Estatal de los Servicios Deportivos a las Administraciones Públicas",
+  "pistas": "Sin datos en el catálogo. Verificar si es público estatal o privado."
+ },
+ {
+  "candidato": "Observatorio del Impacto Social de los Algoritmos (OBISAL)",
+  "pistas": "Compromiso de la Estrategia Nacional de IA (2022-2023), dependería de la AESIA; el catálogo lo da como no activo. Incluir solo si alguna norma lo creó (aunque no se haya constituido)."
+ },
+ {
+  "candidato": "Observatorio de la gestión del agua en España",
+  "pistas": "Previsto en el Real Decreto 1085/2024, de 22 de octubre (reglamento de reutilización del agua), y desarrollado como portal digital contratado (NTT DATA, PERTE del agua). Determinar si es un órgano o solo una herramienta; si es herramienta, excluir pero anotar el importe del contrato si aparece."
+ }
+]

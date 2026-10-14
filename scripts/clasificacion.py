@@ -1,9 +1,11 @@
-"""Classification of the 125 entities: 4 levels + binary + activity flag + reason.
+"""Classification of every entity in the inventory (original sheet + altas): 4 levels + binary + activity flag + reason.
 Writes datos/resultados/Z_clasificacion_v1.json in the same format as research results."""
 from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent  # raíz del repositorio
 RES = BASE / 'datos' / 'resultados'
-import json
+import json, sys
+sys.path.insert(0, str(BASE / 'scripts'))
+from inventario import ids_inventario
 
 LEVEL = {
     'A': 'A. Operativa con medios propios',
@@ -141,8 +143,19 @@ c = {
  123: ('C', N, 'Consultivo sin medios propios; funcionamiento no confirmado.'),
  124: ('A', P, 'Servicios TIC, ciberseguridad y telecomunicaciones del Govern (50,7 M).'),
  125: ('A', P, 'Proyectos e iniciativa energética pública (28,3 M).'),
+ # altas del 14/10/2026
+ 126: ('B', P, 'Unidad de la DGT que produce la estadística de siniestralidad y el Registro Nacional de Víctimas; sin presupuesto ni plantilla diferenciados publicados.'),
+ 127: ('C', P, 'Órgano colegiado asesor de la Subsecretaría de Defensa, sin medios propios (Orden DEF/111/2019); activo en 2020.'),
+ 128: ('C', P, 'Órgano consultivo adscrito a Puertos del Estado, sin medios propios; 19 plenos hasta 2022.'),
+ 129: ('C', P, 'Órgano interno consultivo de RTVE; acuerdo de creación no localizado; activo en 2021.'),
+ 130: ('C', N, 'Órgano colegiado consultivo de Sanidad sin medios propios; reuniones del Pleno no verificadas.'),
+ 131: ('C', N, 'Creado por ley en 2022; funcionamiento como órgano diferenciado no confirmado (lo gestiona la Secretaría para la Unidad de Mercado).'),
+ 132: ('C', P, 'Órgano colegiado consultivo sin medios propios ni retribución de sus miembros; segunda reunión en febrero de 2024.'),
+ 133: ('D', X, 'Creación anunciada por el Gobierno el 21/10/2025; no constituido a 14/10/2026.'),
+ 134: ('D', X, 'Anunciado el 09/02/2026; orden de creación no publicada a 14/10/2026.'),
+ 135: ('D', X, 'Recreación incluida en el proyecto de ley del tabaco (Consejo de Ministros 21/07/2026), en tramitación en el Congreso.'),
 }
-assert sorted(c) == list(range(1, 126)), set(range(1, 126)) - set(c)
+assert sorted(c) == ids_inventario(), set(ids_inventario()) ^ set(c)
 out = []
 for i, (lv, act, why) in sorted(c.items()):
     out.append({'ID': i, 'updates': {

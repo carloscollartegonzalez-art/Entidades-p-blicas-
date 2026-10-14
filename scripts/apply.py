@@ -1,12 +1,13 @@
-"""Rebuilds the workbook: original sheet + every research result + the classification.
+"""Rebuilds the workbook: original sheet + new entries (altas) + every research result + the classification.
 
-It ALWAYS starts from datos/entrada/Entidades_publicas_poder_y_presupuesto_final_125.xlsx, so the
-research data only survives if every results file is applied. With no file arguments it uses the
+It ALWAYS starts from datos/entrada/Entidades_publicas_poder_y_presupuesto_final_125.xlsx and appends the
+altas listed in scripts/inventario.py (green rows), so the research data only survives if every results
+file is applied. With no file arguments it uses the
 full list below (ORDEN), which is what scripts/run_all.py does. If you pass a subset it stops,
 because that would silently drop data; add --parcial only if you really want a partial workbook.
 
 Usage:
-  python scripts/apply.py                    # full rebuild into salida/Entidades_publicas_poder_y_presupuesto_v5.xlsx
+  python scripts/apply.py                    # full rebuild into salida/Entidades_publicas_poder_y_presupuesto_v6.xlsx
   python scripts/apply.py out.xlsx           # full rebuild into out.xlsx
   python scripts/apply.py out.xlsx a.json b.json --parcial   # only these files (data from the others is lost)
 Files are applied in the given order; when two touch the same cell, the later one wins.
@@ -15,6 +16,8 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent  # raíz del repositorio
 RES = BASE / 'datos' / 'resultados'
 import sys, json, copy, re
+sys.path.insert(0, str(BASE / 'scripts'))
+from inventario import altas as _altas
 import openpyxl
 from openpyxl.styles import PatternFill, Font, Alignment
 from openpyxl.utils import get_column_letter as L
@@ -31,7 +34,7 @@ ORDEN = [
 ]
 _args = [a for a in sys.argv[1:] if a != '--parcial']
 PARCIAL = '--parcial' in sys.argv[1:]
-out = _args[0] if _args else str(BASE / 'salida' / 'Entidades_publicas_poder_y_presupuesto_v5.xlsx')
+out = _args[0] if _args else str(BASE / 'salida' / 'Entidades_publicas_poder_y_presupuesto_v6.xlsx')
 files = _args[1:] or [str(RES / f) for f in ORDEN]
 _missing = [f for f in ORDEN if f not in {Path(x).name for x in files}]
 if _missing and not PARCIAL:
@@ -42,11 +45,32 @@ if _missing and not PARCIAL:
 
 REV_DATE = '12/10/2026'
 FILL = PatternFill('solid', fgColor='FFFFF2CC')
+FILL_ALTA = PatternFill('solid', fgColor='FFE2EFDA')   # rows added after the original sheet
 
 wb = openpyxl.load_workbook(SRC)
 ws = wb['Hoja 1']
 hdr = {ws.cell(1, c).value: c for c in range(1, ws.max_column + 1)}
+
+# ---- altas: new rows appended after the original ones, with the style of row 2 and a green fill
+N_ORIG = ws.max_row - 1
+ALTAS = _altas()
+alta_ids = set()
+for a in ALTAS:
+    r = ws.max_row + 1
+    for h, c in hdr.items():
+        ws.cell(r, c)._style = copy.copy(ws.cell(2, c)._style)
+        v = a['fila'].get(h)
+        if isinstance(v, str) and v.strip() == '':
+            v = None
+        ws.cell(r, c).value = v
+        if v is not None:
+            ws.cell(r, c).fill = FILL_ALTA
+    if ws.row_dimensions[2].height:
+        ws.row_dimensions[r].height = ws.row_dimensions[2].height
+    alta_ids.add(a['ID'])
 row_of = {int(float(ws.cell(r, 1).value)): r for r in range(2, ws.max_row + 1)}
+LAST = ws.max_row          # last data row of Hoja 1 (row 126 in the original sheet)
+N = LAST - 1               # number of entities
 
 # new columns appended after the existing ones (classification first, then staff breakdown)
 NEW_COLS = ['Clasificación: útil / no útil', 'Clasificación: veredicto', 'Clasificación: función',
@@ -126,6 +150,10 @@ def clean(h, v):
 changes = []      # (ID, name, header, old, new)
 notes = {}        # ID -> dict(verificacion, no_encontrado, lote)
 extra_sources = {}
+for a in ALTAS:
+    notes[a['ID']] = {'lote': [a.get('lote') or 'altas'],
+                      'verificacion': [f"Alta del 14/10/2026. Por qué entra: {a['motivo_inclusion']}", a['verificacion']],
+                      'no_encontrado': [a['no_encontrado']] if a.get('no_encontrado') else []}
 for f in files:
     lote = f.split('/')[-1].replace('.json', '')
     for e in json.load(open(f, encoding='utf-8')):
@@ -147,7 +175,7 @@ for f in files:
             if old == v or (isinstance(old, float) and isinstance(v, (int, float)) and abs(old - v) < 1e-9):
                 continue
             cell.value = v
-            cell.fill = FILL
+            cell.fill = FILL_ALTA if i in alta_ids else FILL
             if h in numfmt and isinstance(v, (int, float)):
                 cell.number_format = numfmt[h]
             changes.append((i, h, old, v))
@@ -171,7 +199,7 @@ for i, srcs in extra_sources.items():
     if add:
         old = cell.value
         cell.value = (cur + '\n' if cur else '') + '\n'.join(add)
-        cell.fill = FILL
+        cell.fill = FILL_ALTA if i in alta_ids else FILL
         changes.append((i, 'Fuentes de la ficha', old, cell.value))
 
 # stale "límites del juicio" wording where headcount is now filled
@@ -193,7 +221,8 @@ for i, r in row_of.items():
 changed_ids = sorted({c[0] for c in changes})
 afc = hdr['Fecha de revisión']
 for i in changed_ids:
-    ws.cell(row_of[i], afc).value = REV_DATE
+    if i not in alta_ids:          # altas keep their own revision date
+        ws.cell(row_of[i], afc).value = REV_DATE
 
 name = {i: ws.cell(r, hdr['Nombre']).value for i, r in row_of.items()}
 
@@ -207,6 +236,9 @@ for title in ('Cambios 12-10-2026', 'Verificación y pendientes'):
 lg = wb.create_sheet('Cambios 12-10-2026')
 cols = ['ID', 'Nombre', 'Columna', 'Letra', 'Valor anterior', 'Valor nuevo']
 lg.append(cols)
+for a in ALTAS:
+    lg.append([a['ID'], name[a['ID']], 'Fila nueva (alta del 14/10/2026)', None, None,
+               'Ficha completa añadida al inventario (fondo verde en Hoja 1). Fuentes y verificación en «Verificación y pendientes».'])
 for i, h, old, new in sorted(changes, key=lambda c: (c[0], hdr[c[1]])):
     lg.append([i, name[i], h, L(hdr[h]), old, new])
 for c in range(1, len(cols) + 1):
@@ -246,24 +278,38 @@ vp.auto_filter.ref = f'A1:F{vp.max_row}'
 # ---- summary sheet: keep cuts separate, counts by formula, coverage block
 es = wb['Entidades']
 H = "'Hoja 1'!"
+# formulas of the original summary sheet point at rows 2 to 126; extend them to the last row
+for row in es.iter_rows():
+    for cell in row:
+        if isinstance(cell.value, str) and cell.value.startswith('='):
+            cell.value = re.sub(r'(\$?[A-Z]{1,3}\$?2:\$?[A-Z]{1,3}\$?)%d(?![0-9])' % (N_ORIG + 1), lambda m: m.group(1) + str(LAST), cell.value)
+from collections import Counter as _C
+_amb = _C(ws.cell(r, hdr['Ámbito']).value for r in range(2, LAST + 1))
+_txt = {'Estatal': 'estatales', 'Estatal: creación legal no confirmada operativa': 'creaciones legales de constitución no confirmada',
+        'Estatal: creación anunciada o en tramitación, no constituida': 'creaciones anunciadas o en tramitación, no constituidas',
+        'Autonómico': 'autonómicos'}
+assert set(_amb) <= set(_txt), set(_amb) - set(_txt)
+es['A2'] = (f'{N} registros: ' + ' + '.join(f'{_amb[k]} {v}' for k, v in _txt.items() if _amb[k]) +
+            '. Creados o transformados desde 2004. Inventario parcial, no censo exhaustivo.' +
+            (f' Las filas {N_ORIG + 2} a {LAST} de Hoja 1 (fondo verde) son altas del 14/10/2026.' if ALTAS else ''))
 CUT = 'Hasta 31/08/2026:8 meses, NO año completo'
-es['E5'] = f'="Personal 2026 reconocido hasta 31/08 (IGAE), EUR millones ("&COUNTIFS({H}AQ2:AQ126,"<>",{H}AS2:AS126,"{CUT}")&" entidades; NO salarios puros; otros cortes en Hoja 1, no se suman)"'
-es['F5'] = f'=SUMIFS({H}AQ2:AQ126,{H}AR2:AR126,2026,{H}AS2:AS126,"{CUT}")'
-es['E6'] = f'="Pagos personal 2026 hasta 31/08, EUR millones ("&COUNT({H}BI2:BI126)&" entidades)"'
-es['E7'] = f'="Gasto de personal 2025, año completo (cap.1 obligaciones; gastos de personal de cuentas en fundaciones/entes): "&COUNT({H}BP2:BP126)&" entidades, EUR millones; NO sumar con parcial 2026"'
+es['E5'] = f'="Personal 2026 reconocido hasta 31/08 (IGAE), EUR millones ("&COUNTIFS({H}AQ2:AQ{LAST},"<>",{H}AS2:AS{LAST},"{CUT}")&" entidades; NO salarios puros; otros cortes en Hoja 1, no se suman)"'
+es['F5'] = f'=SUMIFS({H}AQ2:AQ{LAST},{H}AR2:AR{LAST},2026,{H}AS2:AS{LAST},"{CUT}")'
+es['E6'] = f'="Pagos personal 2026 hasta 31/08, EUR millones ("&COUNT({H}BI2:BI{LAST})&" entidades)"'
+es['E7'] = f'="Gasto de personal 2025, año completo (cap.1 obligaciones; gastos de personal de cuentas en fundaciones/entes): "&COUNT({H}BP2:BP{LAST})&" entidades, EUR millones; NO sumar con parcial 2026"'
 lab_font = copy.copy(es['B5'].font)
-es['A9'] = 'Cobertura de campos en Hoja 1 (número de fichas con dato; 125 en total)'
+es['A9'] = f'Cobertura de campos en Hoja 1 (número de fichas con dato; {N} en total)'
 es['A9'].font = copy.copy(es['A4'].font)
 cov = [
-    ('Presupuesto propio (cualquier año/base)', f'=COUNT({H}K2:K126)'),
-    ('Sin presupuesto propio verificado en norma (órganos sin dotación)', f'=COUNTIF({H}O2:O126,"Sin presupuesto propio: órgano*")'),
-    ('Extinguidas / suprimidas', f'=COUNTIF({H}O2:O126,"Sin presupuesto propio actual: supresión*")'),
-    ('Sin cifra propia actual verificada (pendientes)', f'=COUNTIF({H}O2:O126,"Sin cifra propia actual verificada")'),
-    ('Crédito de personal (cap. 1 o gastos de personal)', f'=COUNT({H}AL2:AL126)'),
-    ('Gasto de personal ejecutado, columna AQ (año y corte variables; no sumar)', f'=COUNT({H}AQ2:AQ126)'),
-    ('Gasto de personal 2025 año completo', f'=COUNT({H}BP2:BP126)'),
-    ('Personas ocupadas (fecha variable; no sumar)', f'=COUNT({H}AG2:AG126)'),
-    ('Puestos aprobados / presupuestados', f'=COUNT({H}AX2:AX126)'),
+    ('Presupuesto propio (cualquier año/base)', f'=COUNT({H}K2:K{LAST})'),
+    ('Sin presupuesto propio verificado en norma (órganos sin dotación)', f'=COUNTIF({H}O2:O{LAST},"Sin presupuesto propio: órgano*")'),
+    ('Extinguidas / suprimidas', f'=COUNTIF({H}O2:O{LAST},"Sin presupuesto propio actual: supresión*")'),
+    ('Sin cifra propia actual verificada (pendientes)', f'=COUNTIF({H}O2:O{LAST},"Sin cifra propia actual verificada")'),
+    ('Crédito de personal (cap. 1 o gastos de personal)', f'=COUNT({H}AL2:AL{LAST})'),
+    ('Gasto de personal ejecutado, columna AQ (año y corte variables; no sumar)', f'=COUNT({H}AQ2:AQ{LAST})'),
+    ('Gasto de personal 2025 año completo', f'=COUNT({H}BP2:BP{LAST})'),
+    ('Personas ocupadas (fecha variable; no sumar)', f'=COUNT({H}AG2:AG{LAST})'),
+    ('Puestos aprobados / presupuestados', f'=COUNT({H}AX2:AX{LAST})'),
 ]
 for k, (lab, fml) in enumerate(cov):
     r = 10 + k
@@ -271,7 +317,8 @@ for k, (lab, fml) in enumerate(cov):
     es.cell(r, 3).value = fml
     es.cell(r, 2).font = lab_font
     es.cell(r, 3).font = lab_font
-es['A20'] = 'Celdas con fondo amarillo en Hoja 1: completadas o corregidas el 12/10/2026. Detalle celda a celda en la hoja "Cambios 12-10-2026"; fuentes, páginas y huecos pendientes en "Verificación y pendientes".'
+es['A20'] = ('Celdas con fondo amarillo en Hoja 1: completadas o corregidas el 12/10/2026. Filas con fondo verde: entidades añadidas el 14/10/2026. '
+             'Detalle celda a celda en la hoja "Cambios 12-10-2026"; fuentes, páginas y huecos pendientes en "Verificación y pendientes".')
 es['A20'].font = copy.copy(es['A3'].font)
 es['A20'].alignment = Alignment(wrap_text=True, vertical='top')
 es.merge_cells('A20:F20')
@@ -288,7 +335,7 @@ CPP = L(cpp)
 # classification block (judgement aligned with the P100; see 'Clasificación: motivo', 'base en el P100' and 'destino')
 CV_ = L(hdr['Clasificación: veredicto']); CF_ = L(hdr['Clasificación: función']); CU_ = L(hdr['Clasificación: útil / no útil'])
 CB_ = L(hdr['Clasificación: base en el P100'])
-es['A22'] = 'Clasificación de las 125 fichas según el P100 de Extramuros (juicio con criterios explícitos; motivo, base en el P100 y destino de cada una en Hoja 1)'
+es['A22'] = f'Clasificación de las {N} fichas según el P100 de Extramuros (juicio con criterios explícitos; motivo, base en el P100 y destino de cada una en Hoja 1)'
 es['A22'].font = copy.copy(es['A4'].font)
 es['C23'] = 'Fichas'; es['D23'] = 'Con presupuesto propio 2026'; es['E23'] = 'Suma de presupuestos propios 2026, EUR millones (bases distintas: orden de magnitud, no total contable)'
 for cc in ('C23', 'D23', 'E23'):
@@ -302,9 +349,9 @@ for k, (lab, col) in enumerate(labels):
     r = 24 + k
     es.cell(r, 1).value = {0: 'Binario', 4: 'Veredicto', 10: 'Función'}.get(k)
     es.cell(r, 2).value = lab
-    es.cell(r, 3).value = f'=COUNTIF({H}{col}2:{col}126,B{r})'
-    es.cell(r, 4).value = f'=COUNTIFS({H}{col}2:{col}126,B{r},{H}L2:L126,2026,{H}K2:K126,">0")'
-    es.cell(r, 5).value = f'=SUMIFS({H}K2:K126,{H}{col}2:{col}126,B{r},{H}L2:L126,2026)'
+    es.cell(r, 3).value = f'=COUNTIF({H}{col}2:{col}{LAST},B{r})'
+    es.cell(r, 4).value = f'=COUNTIFS({H}{col}2:{col}{LAST},B{r},{H}L2:L{LAST},2026,{H}K2:K{LAST},">0")'
+    es.cell(r, 5).value = f'=SUMIFS({H}K2:K{LAST},{H}{col}2:{col}{LAST},B{r},{H}L2:L{LAST},2026)'
     for c in (1, 2, 3, 4, 5):
         es.cell(r, c).font = copy.copy(es['B5'].font)
     es.cell(r, 5).number_format = '#,##0.0'
@@ -314,7 +361,7 @@ for k, (lab, pat) in enumerate([('Explícito: el P100 nombra el organismo o su c
                                 ('El P100 no trata la materia', 'El P100*')]):
     r = 41 + k
     es.cell(r, 2).value = lab
-    es.cell(r, 3).value = f'=COUNTIF({H}{CB_}2:{CB_}126,"{pat}")'
+    es.cell(r, 3).value = f'=COUNTIF({H}{CB_}2:{CB_}{LAST},"{pat}")'
     es.cell(r, 2).font = copy.copy(es['B5'].font); es.cell(r, 3).font = copy.copy(es['B5'].font)
 es['A45'] = ('Criterio (alineado con el P100). Útil no es tener un contenido, es a qué sirve ese contenido. Un organismo es útil si cumple las tres condiciones: '
              '1) su función es necesaria y cambia decisiones o mejora un servicio (un informe, un dictamen o un trámite de cumplimiento no cuenta; Costes del Estado 2); '
@@ -332,9 +379,9 @@ es.row_dimensions[45].height = 230
 # hidden personnel cost of consultative bodies: scenario from the sheet's own data
 es['A47'] = 'Coste de personal de los órganos consultivos sin presupuesto propio (ESCENARIO, no dato publicado)'
 es['A47'].font = copy.copy(es['A4'].font)
-es['B48'] = 'Órganos consultivos o de participación'; es['C48'] = f'=COUNTIF({H}{CF_}2:{CF_}126,"Consultivo o participación")'
-es['B49'] = 'Coste de personal por persona: mediana de la hoja (gasto 2025 / personas), EUR'; es['C49'] = f'=MEDIAN({H}{CPP}2:{CPP}126)'
-es['B50'] = 'Fichas con las que se calcula la mediana'; es['C50'] = f'=COUNT({H}{CPP}2:{CPP}126)'
+es['B48'] = 'Órganos consultivos o de participación'; es['C48'] = f'=COUNTIF({H}{CF_}2:{CF_}{LAST},"Consultivo o participación")'
+es['B49'] = 'Coste de personal por persona: mediana de la hoja (gasto 2025 / personas), EUR'; es['C49'] = f'=MEDIAN({H}{CPP}2:{CPP}{LAST})'
+es['B50'] = 'Fichas con las que se calcula la mediana'; es['C50'] = f'=COUNT({H}{CPP}2:{CPP}{LAST})'
 for k, n in enumerate([1, 2, 3]):
     r = 51 + k
     es.cell(r, 2).value = f'Si cada órgano ocupa {n} persona{"s" if n > 1 else ""} a tiempo completo: EUR millones al año'

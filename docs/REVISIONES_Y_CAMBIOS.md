@@ -2,6 +2,28 @@
 
 Registro de cambios metodológicos o de datos hechos **después** de la publicación original del análisis (corte 12/10/2026). Cada entrada debe indicar qué se cambió, por qué y qué validación se hizo.
 
+## 2026-10-14 — Corte desde 2004 y 10 observatorios estatales que faltaban
+
+- **Corte: desde 2004, no desde 2006.** La documentación decía «creadas o transformadas desde 2006», pero la hoja original va desde el 17/04/2004 (inicio del Gobierno Zapatero): la ficha más antigua es de octubre de 2004. Se corrige en el README, los documentos, el dashboard y el motivo de las confederaciones hidrográficas. El P100 (Costes del Estado 9) usa el mismo corte.
+- **10 altas (IDs 126 a 135).** Al cruzar el inventario con el catálogo de observatoriospublicos.es salieron 51 observatorios del Estado que no estaban. Se investigaron 21 (encargos 28 a 30) y entran 10; un revisor independiente comprobó los 10 (encargo 31). Detalle y criterio de entrada en [02-investigacion.md](02-investigacion.md#altas-del-14102026).
+  - Inventario: 135 fichas (76 estatales, 3 creaciones legales no constituidas, 3 creaciones anunciadas o en tramitación y 53 autonómicas).
+  - Veredictos: Mantener 28 (+1, Observatorio Nacional de Seguridad Vial), Suprimir 52 (+9). Útiles 32; no útiles 86.
+  - Base en el P100: explícitos 63 (+8), deducciones 55 (+2).
+  - Órganos consultivos: 46 (+6). El escenario de coste pasa a 2,6–7,8 M€ al año.
+  - Ninguna alta tiene presupuesto propio: los totales de presupuesto no cambian.
+- **Código:**
+  - `scripts/preparar_altas.py` construye las fichas a partir de lo que devolvieron los agentes y aplica, una a una y con su motivo, las correcciones del verificador y las de método (fuera las URL de prensa).
+  - `scripts/inventario.py` dice qué fichas forman el inventario. Las clasificaciones y el validador ya no dependen de 125 filas fijas.
+  - `apply.py` añade las altas al final de la Hoja 1 con fondo verde y amplía hasta la última fila los rangos de las fórmulas de la hoja «Entidades».
+  - `clasificacion2.py` lee el coste de apoyo de todos los `C_apoyo*.json`.
+  - El Excel pasa a llamarse `..._v6.xlsx`.
+- **Validación:**
+  - `python scripts/run_all.py` completo y el validador en OK (135 filas).
+  - Excel recalculado sin errores (276 fórmulas).
+  - Las 125 fichas originales no cambian salvo el motivo de las confederaciones (2004 en vez de 2006): 2.712 celdas cambiadas, las mismas que antes.
+
+---
+
 ## 2026-10-14 — Versión corregida sobre la revisión del 13/10
 
 Se incorporan los cambios del PR #1 (pestañas, nombres completos de destinos, columna de matriz, nota del 112, filas de referencia, d3 local, UTF-8) y se corrige lo siguiente.
@@ -63,7 +85,7 @@ Se incorporan los cambios del PR #1 (pestañas, nombres completos de destinos, c
 ### 2. Confederaciones hidrográficas Miño-Sil (37) y Cantábrico (38) — **Mantener** (antes Reformar)
 
 - **Pregunta:** ¿Por qué solo estas dos y «Reformar»? ¿Y Ebro, Tajo, etc.?
-- **Decisión:** Son **organismos autónomos estatales** adscritos al ministerio de Medio Ambiente, no duplicidades autonómicas. El inventario de 125 solo incluye entidades **creadas o transformadas desde 2006**; otras confederaciones no tienen ficha en esta hoja.
+- **Decisión:** Son **organismos autónomos estatales** adscritos al ministerio de Medio Ambiente, no duplicidades autonómicas. El inventario de 125 solo incluye entidades **creadas o transformadas desde 2004** (decía 2006 por error; corregido el 14/10/2026); otras confederaciones no tienen ficha en esta hoja.
 - **P100 «Menos normas 12»:** Afecta al régimen de informes (silencio favorable), no a suprimir o integrar el organismo. Se reclasifican como **Mantener** con motivo explícito.
 - **Efecto en cifras:** «Reformar» pasa de 6 a **4** (quedan CTBG, AECID, INVIED, SETT) y «Mantener» de 25 a **27**. Útiles siguen siendo 31.
 

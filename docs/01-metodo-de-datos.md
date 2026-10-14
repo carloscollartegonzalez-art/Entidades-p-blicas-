@@ -68,13 +68,13 @@ Hay dos criterios, y cada fila dice cuál usa en «Desglose: criterio de clasifi
 |---|---|---|
 | Contrastada por un segundo revisor (muestra) | 20 | Un agente que no participó en la búsqueda volvió a la fuente y comparó la cifra literal. Coincidieron 20 de 20. |
 | Fuente oficial citada | 50 | Cada cifra tiene documento, página y unidad, pero no se ha recontrastado. |
-| Sin cifras | 55 | Sobre todo órganos consultivos y entidades extinguidas, sin presupuesto propio que verificar. |
+| Sin cifras | 65 | Sobre todo órganos consultivos y entidades extinguidas, sin presupuesto propio que verificar. Incluye las 10 altas del 14/10/2026, ninguna con presupuesto propio. |
 
 La clasificación (veredicto, función y duplicidad) es un juicio con criterio explícito, no un dato.
 
 ## Cobertura conseguida
 
-| Campo | Hoja original | v5 |
+| Campo | Hoja original | v6 |
 |---|---|---|
 | Presupuesto propio | 38 | 61 |
 | Crédito de personal | 29 | 44 |
@@ -83,4 +83,4 @@ La clasificación (veredicto, función y duplicidad) es un juicio con criterio e
 | Personas ocupadas | 4 | 29 |
 | Puestos aprobados | 6 | 22 |
 
-Hay 2.712 celdas cambiadas. Cada una figura con su valor anterior y el nuevo en la hoja «Cambios 12-10-2026».
+Hay 2.712 celdas cambiadas en las fichas originales. Cada una figura con su valor anterior y el nuevo en la hoja «Cambios 12-10-2026», que también registra las 10 altas del 14/10/2026 (fichas nuevas, en verde en la Hoja 1).

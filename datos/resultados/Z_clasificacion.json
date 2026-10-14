@@ -640,7 +640,7 @@
    "Clasificación: duplicidad": null,
    "Clasificación: exigida por la UE": "No",
    "Clasificación: actividad reciente": "Acreditada",
-   "Clasificación: motivo": "Confederación hidrográfica: organismo autónomo estatal que gestiona el agua de su cuenca; no duplica a ningún organismo autonómico. La medida 12 de «Menos normas» cambia el régimen de sus informes (silencio favorable y plazo único), pero es un cambio de procedimiento que afecta a todos los organismos que informan planes, igual que la medida 9 de Costes a la CNMC o la AIReF, que siguen en Mantener. Solo Miño-Sil y Cantábrico están en el inventario (creadas o transformadas desde 2006); el resto de cuencas no tiene ficha.",
+   "Clasificación: motivo": "Confederación hidrográfica: organismo autónomo estatal que gestiona el agua de su cuenca; no duplica a ningún organismo autonómico. La medida 12 de «Menos normas» cambia el régimen de sus informes (silencio favorable y plazo único), pero es un cambio de procedimiento que afecta a todos los organismos que informan planes, igual que la medida 9 de Costes a la CNMC o la AIReF, que siguen en Mantener. Solo Miño-Sil y Cantábrico están en el inventario (creadas o transformadas desde 2004); el resto de cuencas no tiene ficha.",
    "Tema funcional": "Agua (cuencas hidrográficas)",
    "Organismos del mismo tema (Estado + CCAA, verificados)": null,
    "Clasificación: base en el P100": "Aplicando el criterio del P100: Servicio directo; Menos normas 12 solo cambia el régimen de sus informes",
@@ -656,7 +656,7 @@
    "Clasificación: duplicidad": null,
    "Clasificación: exigida por la UE": "No",
    "Clasificación: actividad reciente": "Acreditada",
-   "Clasificación: motivo": "Confederación hidrográfica: organismo autónomo estatal que gestiona el agua de su cuenca; no duplica a ningún organismo autonómico. La medida 12 de «Menos normas» cambia el régimen de sus informes (silencio favorable y plazo único), pero es un cambio de procedimiento que afecta a todos los organismos que informan planes, igual que la medida 9 de Costes a la CNMC o la AIReF, que siguen en Mantener. Solo Miño-Sil y Cantábrico están en el inventario (creadas o transformadas desde 2006); el resto de cuencas no tiene ficha.",
+   "Clasificación: motivo": "Confederación hidrográfica: organismo autónomo estatal que gestiona el agua de su cuenca; no duplica a ningún organismo autonómico. La medida 12 de «Menos normas» cambia el régimen de sus informes (silencio favorable y plazo único), pero es un cambio de procedimiento que afecta a todos los organismos que informan planes, igual que la medida 9 de Costes a la CNMC o la AIReF, que siguen en Mantener. Solo Miño-Sil y Cantábrico están en el inventario (creadas o transformadas desde 2004); el resto de cuencas no tiene ficha.",
    "Tema funcional": "Agua (cuencas hidrográficas)",
    "Organismos del mismo tema (Estado + CCAA, verificados)": null,
    "Clasificación: base en el P100": "Aplicando el criterio del P100: Servicio directo; Menos normas 12 solo cambia el régimen de sus informes",
@@ -2158,5 +2158,205 @@
    "Clasificación: base en el P100": "Aplicando el criterio del P100: Criterio Extramuros del 12/10/2026",
    "Clasificación: destino de sus funciones": "Instituto para la Diversificación y Ahorro de la Energía (IDAE) y la consejería"
   }
+ },
+ {
+  "ID": 126,
+  "updates": {
+   "Clasificación: útil / no útil": "Útil",
+   "Clasificación: veredicto": "Mantener",
+   "Clasificación: función": "Servicio público directo",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "No es un órgano consultivo, sino la unidad de la DGT que produce la estadística de siniestralidad, lleva el Registro Nacional de Víctimas y prepara los planes de seguridad vial. Lo que sobra es el nombre de observatorio, no la función. Se creó sin aumento de gasto (DA 3.ª RD 1599/2004).",
+   "Tema funcional": "Seguridad vial (estadística y registro de víctimas)",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Es en sí una unidad de la DGT (OA Jefatura Central de Tráfico). puestos asignados según fuente oficial: Puestos en la RPT de la Jefatura Central de Tráfico (art. 10.3 RD 1599/2004); número no localizado. gasto con nombre propio: No; DA 3.ª RD 1599/2004: sin incremento de gasto público.",
+   "Clasificación: base en el P100": "Aplicando el criterio del P100: Costes del Estado 2 y 9 (función técnica que nadie más presta)",
+   "Clasificación: destino de sus funciones": null
+  },
+  "fuentes_nuevas": [
+   "https://www.boe.es/buscar/doc.php?id=BOE-A-2004-12473"
+  ]
+ },
+ {
+  "ID": 127,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Suprimir",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Observatorio o consejo asesor: el P100 los cierra salvo que su ministerio demuestre que su trabajo cambia decisiones o mejora un servicio; publicar informes no cuenta.",
+   "Tema funcional": "Igualdad (sectorial)",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Secretaría Permanente de Igualdad (División de Igualdad y Apoyo al Personal, DG de Personal), con medios personales fijados en RPT/RPM (art. 4.2 Orden DEF/111/2019). vocales: 17 vocales titulares con suplente más presidencia (Subsecretario), vicepresidencia (DG de Personal) y titular de la División de Igualdad (art. 1.2-1.3). gasto con nombre propio: No: medios existentes de Defensa, «sin que la aprobación de esta norma suponga incremento de gasto público» (disposición adicional única; art. 3.2).",
+   "Clasificación: base en el P100": "Explícito en el P100: Costes del Estado 2",
+   "Clasificación: destino de sus funciones": "Estructura ordinaria del ministerio, si alguna función resultara imprescindible"
+  },
+  "fuentes_nuevas": [
+   "https://www.boe.es/buscar/doc.php?id=BOE-A-2019-1785"
+  ]
+ },
+ {
+  "ID": 128,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Suprimir",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Observatorio de 42 miembros que hace recomendaciones no vinculantes sobre precios y calidad de los servicios portuarios; el informe anual de competitividad lo elabora Puertos del Estado por ley y puede seguir haciéndolo sin el observatorio.",
+   "Tema funcional": "Servicios portuarios",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Puertos del Estado: presidencia (presidente de Puertos del Estado), secretaría (cargo de Puertos del Estado) y Oficina Técnica de apoyo contratada (Memoria 2022, p. 20). vocales: 41 vocales + presidente en 2022 (recuento propio, Memoria 2022 pp. 7-9); 36 vocales titulares en 2014 (recuento propio, Memoria 2014). gasto con nombre propio: No: contrato de Oficina Técnica y estudios citados sin importe.",
+   "Clasificación: base en el P100": "Explícito en el P100: Costes del Estado 2 (creado por ley: se suprime en la ley de la medida 4)",
+   "Clasificación: destino de sus funciones": "Puertos del Estado, que ya elabora el informe anual de competitividad"
+  },
+  "fuentes_nuevas": [
+   "https://observatorio.puertos.es/DOC_PUBLICOS/MEMORIA%20ANUAL%20OBSERVATORIO%202022.pdf"
+  ]
+ },
+ {
+  "ID": 129,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Suprimir",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Observatorio interno de RTVE: su producto son informes y propuestas, que el P100 no cuenta como resultado. Su acuerdo de creación no está publicado.",
+   "Tema funcional": "Igualdad (sectorial)",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: No verificada (sus resoluciones llevan cabecera de la Secretaría General).",
+   "Clasificación: base en el P100": "Aplicando el criterio del P100: Costes del Estado 2 (aplicado a una sociedad mercantil estatal)",
+   "Clasificación: destino de sus funciones": "Dirección de RTVE, si alguna función es imprescindible"
+  },
+  "fuentes_nuevas": [
+   "https://www.congreso.es/public_oficiales/L14/CORT/DS/CM/DSCG-14-CM-108.PDF"
+  ]
+ },
+ {
+  "ID": 130,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Suprimir",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "No acreditada",
+   "Clasificación: motivo": "Observatorio o consejo asesor: el P100 los cierra salvo que su ministerio demuestre que su trabajo cambia decisiones o mejora un servicio; publicar informes no cuenta.",
+   "Tema funcional": "Igualdad (sectorial)",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Equipo Técnico Permanente coordinado por la DG de Salud Pública, Calidad e Innovación, formado por vocales del Ministerio; secretaría: funcionario de la DG, con voz y sin voto (apartados Quinto y Sexto). vocales: Presidencia, dos vicepresidencias y 21 vocalías según La Moncloa (Ministerio, ENS, INGESA, Instituto de la Mujer, DGVG, servicios de salud autonómicos, FEMP y organizaciones de mujeres). gasto con nombre propio: No: «no supondrá incremento del gasto público»; medios existentes del Ministerio (apartado Séptimo).",
+   "Clasificación: base en el P100": "Explícito en el P100: Costes del Estado 2",
+   "Clasificación: destino de sus funciones": "Estructura ordinaria del ministerio, si alguna función resultara imprescindible"
+  },
+  "fuentes_nuevas": [
+   "https://boe.es/boe/dias/2019/04/23/pdfs/BOE-A-2019-6060.pdf"
+  ]
+ },
+ {
+  "ID": 131,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Suprimir",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "No acreditada",
+   "Clasificación: motivo": "Creado por ley en 2022 para hacer un catálogo de buenas prácticas regulatorias; no funciona como órgano diferenciado: lo gestiona la Secretaría para la Unidad de Mercado.",
+   "Tema funcional": "Mejora regulatoria",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Secretaría para la Unidad de Mercado (Ministerio de Economía), por mandato legal (DA 9.ª y art. 11.b Ley 20/2013). vocales: La ley no prevé vocales propios; actúa en el marco de la Conferencia Sectorial.",
+   "Clasificación: base en el P100": "Explícito en el P100: Costes del Estado 2 (creado por ley: se suprime en la ley de la medida 4)",
+   "Clasificación: destino de sus funciones": "Secretaría para la Unidad de Mercado, que ya lo gestiona"
+  },
+  "fuentes_nuevas": [
+   "https://www.boe.es/buscar/act.php?id=BOE-A-2022-15818"
+  ]
+ },
+ {
+  "ID": 132,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Suprimir",
+   "Clasificación: función": "Consultivo o participación",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "Parcial",
+   "Clasificación: motivo": "Observatorio o consejo asesor: el P100 los cierra salvo que su ministerio demuestre que su trabajo cambia decisiones o mejora un servicio; publicar informes no cuenta.",
+   "Tema funcional": "Salud y cambio climático",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Secretaría a cargo del Ministerio de Sanidad: una persona de la DG de Salud Pública designada por la presidencia (apartado Cuarto.6); grupos de trabajo coordinables por el ISCIII (Quinto). vocales: Presidencia (DG Salud Pública), vicepresidencia (DG Oficina Española de Cambio Climático) y 10 vocalías con rango mínimo de subdirector general (apartado Cuarto.1). miembros: No: «no percibirán remuneración ni dieta alguna» (apartado Séptimo.2). gasto con nombre propio: No: «no supondrá incremento alguno del gasto público»; medios de los ministerios y organismos participantes (apartado Séptimo.1).",
+   "Clasificación: base en el P100": "Explícito en el P100: Costes del Estado 2",
+   "Clasificación: destino de sus funciones": "Estructura ordinaria del ministerio, si alguna función resultara imprescindible"
+  },
+  "fuentes_nuevas": [
+   "https://www.sanidad.gob.es/areas/sanidadAmbiental/observatorioSaludCambioClimatico/docs/acuerdo_OSCC.pdf"
+  ]
+ },
+ {
+  "ID": 133,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Suprimir",
+   "Clasificación: función": "Extinguida o no constituida",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "No aplica (no vigente)",
+   "Clasificación: motivo": "Observatorio anunciado y no constituido: con el criterio del P100, que cierra los observatorios que no demuestren resultados, lo coherente es no crearlo.",
+   "Tema funcional": "Vivienda turística",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: Secretaría de Estado de Turismo (según La Moncloa, 08/10/2025).",
+   "Clasificación: base en el P100": "Explícito en el P100: Costes del Estado 2",
+   "Clasificación: destino de sus funciones": null
+  },
+  "fuentes_nuevas": [
+   "https://www.lamoncloa.gob.es/presidente/actividades/paginas/2025/081025-sanchez-convencion-turespana-caceres.aspx"
+  ]
+ },
+ {
+  "ID": 134,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Suprimir",
+   "Clasificación: función": "Extinguida o no constituida",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "No aplica (no vigente)",
+   "Clasificación: motivo": "Observatorio anunciado y no constituido: con el criterio del P100, que cierra los observatorios que no demuestren resultados, lo coherente es no crearlo.",
+   "Tema funcional": "Incapacidad temporal",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: No consta (orden no publicada); adscripción anunciada a la Secretaría de Estado de la Seguridad Social y Pensiones. vocales: Anunciados: MISSM (SESSP, DGOSS, INSS), Sanidad (SE de Sanidad, DG de Salud Pública y Equidad en Salud, Comisionado de Salud Mental), CEOE, CEPYME, CCOO, UGT; número de vocales no fijado. gasto con nombre propio: No: sin norma, convenio, contrato ni encargo localizados.",
+   "Clasificación: base en el P100": "Explícito en el P100: Costes del Estado 2",
+   "Clasificación: destino de sus funciones": null
+  },
+  "fuentes_nuevas": [
+   "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/Paginas/2026/090226-observatorio-incapacidad-temporal.aspx"
+  ]
+ },
+ {
+  "ID": 135,
+  "updates": {
+   "Clasificación: útil / no útil": "No útil",
+   "Clasificación: veredicto": "Suprimir",
+   "Clasificación: función": "Extinguida o no constituida",
+   "Clasificación: duplicidad": null,
+   "Clasificación: exigida por la UE": "No",
+   "Clasificación: actividad reciente": "No aplica (no vigente)",
+   "Clasificación: motivo": "Observatorio que el proyecto de ley del tabaco vuelve a crear, tras su supresión en 2014: con el criterio del P100 lo coherente es retirarlo del proyecto.",
+   "Tema funcional": "Tabaquismo",
+   "Organismos del mismo tema (Estado + CCAA, verificados)": null,
+   "Coste de apoyo (sin presupuesto propio): unidad, vocales y dietas": "Apoyo: No prevista en el proyecto (sin adscripción ni secretaría fijadas). puestos asignados según fuente oficial: Ninguno (órgano no constituido). vocales: Sanidad (DG de Salud Pública y Equidad en Salud), Comisionado para el Mercado de Tabacos, MAPA, CICC, ISCIII, CCAA, sociedades científicas, asociaciones de consumidores y ONG (nuevo art. 16). gasto con nombre propio: No: el proyecto no contiene cláusula de gasto ni de medios; MAIN no consultada.",
+   "Clasificación: base en el P100": "Explícito en el P100: Costes del Estado 2 (los creados por ley se suprimen en la ley de la medida 4)",
+   "Clasificación: destino de sus funciones": null
+  },
+  "fuentes_nuevas": [
+   "https://www.congreso.es/public_oficiales/L15/CONG/BOCG/A/BOCG-15-A-111-1.PDF"
+  ]
  }
 ]

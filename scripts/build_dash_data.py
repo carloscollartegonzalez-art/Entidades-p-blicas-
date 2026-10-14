@@ -1,5 +1,5 @@
 """Reads the finished workbook and writes the dashboard datasets to dashboard/datos/.
-Usage: python3 scripts/build_dash_data.py salida/Entidades_publicas_poder_y_presupuesto_v5.xlsx"""
+Usage: python3 scripts/build_dash_data.py salida/Entidades_publicas_poder_y_presupuesto_v6.xlsx"""
 import openpyxl, json, re, sys
 from pathlib import Path
 
@@ -8,7 +8,7 @@ sys.path.insert(0, str(BASE / 'scripts'))
 from destino_labels import destino_para_mostrar
 RES = BASE / 'datos' / 'resultados'
 DASH = BASE / 'dashboard' / 'datos'
-wb = openpyxl.load_workbook(sys.argv[1] if len(sys.argv) > 1 else BASE / 'salida' / 'Entidades_publicas_poder_y_presupuesto_v5.xlsx', data_only=True)
+wb = openpyxl.load_workbook(sys.argv[1] if len(sys.argv) > 1 else BASE / 'salida' / 'Entidades_publicas_poder_y_presupuesto_v6.xlsx', data_only=True)
 ws = wb['Hoja 1']
 h = {ws.cell(1, c).value: c for c in range(1, ws.max_column + 1)}
 def g(r, k):

@@ -1,0 +1,30 @@
+[
+ {
+  "candidato": "Observatorio de Salud y Cambio Climático (OSCC)",
+  "pistas": "Aprobado por el Consejo de Ministros el 18/07/2023 (nota MITECO/Sanidad); 'órgano colegiado intersectorial'; documento https://www.sanidad.gob.es/areas/sanidadAmbiental/observatorioSaludCambioClimatico/docs/acuerdo_OSCC.pdf"
+ },
+ {
+  "candidato": "Observatorio para la Prevención del Tabaquismo",
+  "pistas": "Suprimido en 2014; el anteproyecto de ley que modifica la Ley 28/2005 (Consejo de Ministros 09/09/2025) lo restablece como 'órgano de coordinación interadministrativa'. Comprobar si la ley se ha aprobado o sigue en tramitación y si existía antes de 2014 con otra norma (fecha de creación original)."
+ },
+ {
+  "candidato": "Observatorio de Salud de las Mujeres (Ministerio de Sanidad)",
+  "pistas": "web observatoriosaludmujeres.es; fecha y norma de creación desconocidas. Incluir solo si se creó o transformó desde 17/04/2004 y es un órgano o unidad con entidad propia."
+ },
+ {
+  "candidato": "Observatorio Español del Racismo y la Xenofobia (OBERAXE)",
+  "pistas": "Ministerio de Inclusión; posiblemente creado en 2005 (verificar norma: Ley Orgánica 4/2000 art. 71 en redacción de LO 14/2003, y regulación posterior)."
+ },
+ {
+  "candidato": "Observatorio Militar para la Igualdad entre Mujeres y Hombres en las Fuerzas Armadas",
+  "pistas": "Orden DEF/111/2019 de 8 de febrero (BOE-A-2019-1785) regula su estructura; Orden Ministerial 51/2011 de 28 de julio le cambió el nombre (antes 'Centro de Estudio sobre la situación de la Mujer en las Fuerzas Armadas'); RD 1399/2018 lo adscribe a la Subsecretaría. Órgano colegiado del art. 22.3 Ley 40/2015."
+ },
+ {
+  "candidato": "Observatorio de Igualdad de la Corporación RTVE",
+  "pistas": "Creado 31/01/2018 según el catálogo; órgano interno de la Corporación RTVE (sociedad mercantil estatal). Verificar acuerdo de creación."
+ },
+ {
+  "candidato": "Observatorio Estatal de la Dependencia",
+  "pistas": "Sin datos en el catálogo. Comprobar si es un órgano público (Ley 39/2006, IMSERSO) o una iniciativa privada (p. ej. Asociación Estatal de Directoras y Gerentes en Servicios Sociales). Excluir si es privado."
+ }
+]
