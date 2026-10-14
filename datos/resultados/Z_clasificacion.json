@@ -640,10 +640,10 @@
    "Clasificación: duplicidad": null,
    "Clasificación: exigida por la UE": "No",
    "Clasificación: actividad reciente": "Acreditada",
-   "Clasificación: motivo": "Confederación hidrográfica: organismo autónomo de la AGE con personalidad propia, adscrito al ministerio de Medio Ambiente; gestiona la cuenca como pieza estatal, no una duplicidad autonómica. El inventario solo recoge Miño-Sil y Cantábrico (creadas/transformadas en el periodo); Ebro, Tajo, Duero, Guadalquivir, etc. no están en las 125 fichas. El P100 «Menos normas 12» limita el bloqueo de informes; no implica integrar ni suprimir la confederación.",
+   "Clasificación: motivo": "Confederación hidrográfica: organismo autónomo estatal que gestiona el agua de su cuenca; no duplica a ningún organismo autonómico. La medida 12 de «Menos normas» cambia el régimen de sus informes (silencio favorable y plazo único), pero es un cambio de procedimiento que afecta a todos los organismos que informan planes, igual que la medida 9 de Costes a la CNMC o la AIReF, que siguen en Mantener. Solo Miño-Sil y Cantábrico están en el inventario (creadas o transformadas desde 2006); el resto de cuencas no tiene ficha.",
    "Tema funcional": "Agua (cuencas hidrográficas)",
    "Organismos del mismo tema (Estado + CCAA, verificados)": null,
-   "Clasificación: base en el P100": "Aplicando el criterio del P100: Servicio directo (organismo autónomo estatal de cuenca)",
+   "Clasificación: base en el P100": "Aplicando el criterio del P100: Servicio directo; Menos normas 12 solo cambia el régimen de sus informes",
    "Clasificación: destino de sus funciones": null
   }
  },
@@ -656,10 +656,10 @@
    "Clasificación: duplicidad": null,
    "Clasificación: exigida por la UE": "No",
    "Clasificación: actividad reciente": "Acreditada",
-   "Clasificación: motivo": "Confederación hidrográfica: organismo autónomo de la AGE con personalidad propia, adscrito al ministerio de Medio Ambiente; gestiona la cuenca como pieza estatal, no una duplicidad autonómica. El inventario solo recoge Miño-Sil y Cantábrico (creadas/transformadas en el periodo); Ebro, Tajo, Duero, Guadalquivir, etc. no están en las 125 fichas. El P100 «Menos normas 12» limita el bloqueo de informes; no implica integrar ni suprimir la confederación.",
+   "Clasificación: motivo": "Confederación hidrográfica: organismo autónomo estatal que gestiona el agua de su cuenca; no duplica a ningún organismo autonómico. La medida 12 de «Menos normas» cambia el régimen de sus informes (silencio favorable y plazo único), pero es un cambio de procedimiento que afecta a todos los organismos que informan planes, igual que la medida 9 de Costes a la CNMC o la AIReF, que siguen en Mantener. Solo Miño-Sil y Cantábrico están en el inventario (creadas o transformadas desde 2006); el resto de cuencas no tiene ficha.",
    "Tema funcional": "Agua (cuencas hidrográficas)",
    "Organismos del mismo tema (Estado + CCAA, verificados)": null,
-   "Clasificación: base en el P100": "Aplicando el criterio del P100: Servicio directo (organismo autónomo estatal de cuenca)",
+   "Clasificación: base en el P100": "Aplicando el criterio del P100: Servicio directo; Menos normas 12 solo cambia el régimen de sus informes",
    "Clasificación: destino de sus funciones": null
   }
  },

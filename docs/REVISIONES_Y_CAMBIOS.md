@@ -2,7 +2,43 @@
 
 Registro de cambios metodológicos o de datos hechos **después** de la publicación original del análisis (corte 12/10/2026). Cada entrada debe indicar qué se cambió, por qué y qué validación se hizo.
 
-## 2026-03-12 — Dashboard: pestañas, matriz de integración y UI
+## 2026-10-14 — Versión corregida sobre la revisión del 13/10
+
+Se incorporan los cambios del PR #1 (pestañas, nombres completos de destinos, columna de matriz, nota del 112, filas de referencia, d3 local, UTF-8) y se corrige lo siguiente.
+
+- **Datos de la investigación restaurados.** En el PR #1 el Excel se regeneró llamando a `apply.py` solo con `Z_clasificacion.json`. Como `apply.py` parte siempre de la hoja original, se perdieron los resultados de la investigación:
+
+  | Dato | Antes | En el PR #1 |
+  |---|---|---|
+  | Presupuestos | 61 | 38 |
+  | Personas | 29 | 4 |
+  | Desglose de personal | 29 | 0 |
+  | Celdas cambiadas | 2.712 | 1.242 |
+
+  Se ha regenerado todo con el proceso completo y vuelven las cifras de antes.
+- **Para que no vuelva a pasar:**
+  - `apply.py` usa la lista completa si no recibe ficheros y se niega a seguir si faltan resultados (salvo `--parcial`).
+  - `validate_dashboard_data.py` falla si hay los mismos presupuestos que en la hoja original o si el desglose de personal está vacío.
+  - Nuevo `scripts/run_all.py` para Windows, macOS y Linux, con UTF-8 forzado. `run_all.sh` queda como atajo.
+  - Todas las lecturas de JSON llevan `encoding='utf-8'`.
+- **Confederaciones hidrográficas: se acepta Mantener.** El argumento de coherencia es este: la medida 12 de «Menos normas» cambia el procedimiento de informes de todos los organismos que informan planes, igual que la medida 9 de Costes a la CNMC o la AIReF, que están en Mantener. Reformar queda para los organismos a los que el P100 cambia a ellos mismos (CTBG, AECID, INVIED, SETT). La base pasa a «Aplicando el criterio»: explícitos de 57 a 55, deducciones de 51 a 53.
+- **Filas de referencia (9001–9008):**
+  - siguen fuera de todos los totales;
+  - en la tabla, su importe lleva el año: «1.231,6 (2023)»;
+  - una nota explica que son de 2023 y de bases distintas.
+
+  Comprobado en el ROM citado: la cifra de la AEAT (1.231,6 M€) es la transferencia corriente de Hacienda, no su presupuesto total.
+- **d3 local:** `dashboard/vendor/d3.min.js` es idéntico byte a byte a d3 7.9.0 de npm.
+- **Fechas corregidas** (las entradas decían 12/03/2026) y **rutas locales retiradas** de la documentación.
+- **Validación:**
+  - `python scripts/run_all.py` completo y el validador en OK.
+  - Excel recalculado sin errores (266 fórmulas).
+  - Frente a `main`, la hoja solo cambia en veredicto, base y motivo de las confederaciones, en los motivos de las tres agencias de emergencias y en los nombres completos de los destinos.
+  - Vista previa probada en el navegador: cada pestaña muestra solo su panel, Personal tiene sus 29 filas y no hay errores en la consola.
+
+---
+
+## 2026-10-13 — Dashboard: pestañas, matriz de integración y UI
 
 | Área | Cambio | Motivo |
 |------|--------|--------|
@@ -15,7 +51,7 @@ Registro de cambios metodológicos o de datos hechos **después** de la publicac
 
 ---
 
-## 2026-03-12 — Clasificación, destinos y referencias (revisión metodológica)
+## 2026-10-13 — Clasificación, destinos y referencias (revisión metodológica)
 
 ### 1. Agencia de Emergencias de Andalucía (id 101) — sigue **Mantener**
 
@@ -29,7 +65,7 @@ Registro de cambios metodológicos o de datos hechos **después** de la publicac
 - **Pregunta:** ¿Por qué solo estas dos y «Reformar»? ¿Y Ebro, Tajo, etc.?
 - **Decisión:** Son **organismos autónomos estatales** adscritos al ministerio de Medio Ambiente, no duplicidades autonómicas. El inventario de 125 solo incluye entidades **creadas o transformadas desde 2006**; otras confederaciones no tienen ficha en esta hoja.
 - **P100 «Menos normas 12»:** Afecta al régimen de informes (silencio favorable), no a suprimir o integrar el organismo. Se reclasifican como **Mantener** con motivo explícito.
-- **Efecto en cifras:** «Reformar» pasa de 6 a **4** (quedan CTBG, AECID, INVIED, SETT). Actualizar lectura en `docs/03-clasificacion-p100.md` al regenerar documentación.
+- **Efecto en cifras:** «Reformar» pasa de 6 a **4** (quedan CTBG, AECID, INVIED, SETT) y «Mantener» de 25 a **27**. Útiles siguen siendo 31.
 
 ### 3. Nombres completos en «destino / matriz»
 
@@ -55,18 +91,17 @@ Registro de cambios metodológicos o de datos hechos **después** de la publicac
 | 9008 | CCN-CERT | — | Solo ancla institucional (sin ROM limitativo propio) |
 
 - **Pendiente:** Personal y cap. 1 en referencias cuando se extienda el mismo método que las 125 fichas (corte 2026 en inventario).
-- **Desglose núcleo técnico/científico vs administración:** solo existe en el pipeline del inventario (`personal_desglose.json`, generado desde el Excel). Las filas `referencias_matriz` **no** tienen ese desglose; hoy `personal_desglose.json` puede ir vacío si el libro no trae columnas de desglose rellenas. No se ha replicado el trabajo de clasificación de plantilla para CDTI, AEAT, ANECA, AEPD, Defensor, IDAE ni INCIBE.
+- **Desglose núcleo técnico/científico vs administración:** solo existe en el pipeline del inventario (`personal_desglose.json`, generado desde el Excel). Las filas `referencias_matriz` **no** tienen ese desglose; (en la primera versión de esta revisión `personal_desglose.json` salía vacío, pero no por eso: el Excel se había regenerado sin los resultados de personal; ver la entrada del 14/10/2026). No se ha replicado el trabajo de clasificación de plantilla para CDTI, AEAT, ANECA, AEPD, Defensor, IDAE ni INCIBE.
 
 ### Regenerar datos tras cambios de clasificación
 
-```powershell
-cd C:\Users\Holacons\Work\extramuros
-python scripts/clasificacion3.py
-python scripts/apply.py salida/Entidades_publicas_poder_y_presupuesto_v5.xlsx datos/resultados/Z_clasificacion.json
-python scripts/build_dash_data.py
-python scripts/build_dashboard.py
-python scripts/export_csv.py salida/Entidades_publicas_poder_y_presupuesto_v5.xlsx
+Desde la raíz del repositorio, en cualquier sistema:
+
 ```
+python scripts/run_all.py
+```
+
+No llames a `apply.py` solo con `Z_clasificacion.json`. Reconstruye el Excel desde la hoja original y se perderían todos los resultados de la investigación. Ahora se niega a hacerlo (ver la entrada del 14/10/2026).
 
 ---
 

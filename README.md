@@ -20,8 +20,8 @@ Fecha de corte: 12/10/2026. Las cifras de ejecución de 2026 llegan hasta el 31/
 
 | Veredicto | Entidades | Con presupuesto propio 2026 | Presupuesto propio 2026 (M€, orden de magnitud) |
 |---|---|---|---|
-| Mantener | 25 | 23 | 9.019 |
-| Reformar | 6 | 6 | 1.183 |
+| Mantener | 27 | 25 | 9.099 |
+| Reformar | 4 | 4 | 1.103 |
 | Integrar en otro organismo | 34 | 27 | 2.264 |
 | Suprimir | 43 | 2 | 77 |
 | Pendiente de decisión (el P100 no trata la materia) | 4 | 1 | 81 |
@@ -47,10 +47,10 @@ Más resultados:
 |---|---|
 | Ver el resultado entidad por entidad | [`salida/clasificacion_entidades.csv`](salida/clasificacion_entidades.csv) (GitHub lo muestra como tabla) |
 | La hoja completa, con fuentes, cambios y verificación | [`salida/Entidades_publicas_poder_y_presupuesto_v5.xlsx`](salida/) |
-| Ver el dashboard sin Claude | [`dashboard/preview.html`](dashboard/preview.html) — mejor con `.\scripts\serve_dashboard.ps1` y abrir `http://localhost:8766/dashboard/preview.html` (no uses `index.html` en local) |
+| Ver el dashboard sin Claude | Descarga el repositorio y abre [`dashboard/preview.html`](dashboard/preview.html) en el navegador; si no carga, `python -m http.server 8766` y abre `http://localhost:8766/dashboard/preview.html` (no uses `index.html` en local) |
 | Entender cómo se hizo | [`docs/`](docs/), en este orden |
-| Cambios y revisiones del fork | [`docs/REVISIONES_Y_CAMBIOS.md`](docs/REVISIONES_Y_CAMBIOS.md) |
-| Reproducirlo | `bash scripts/run_all.sh` (ver abajo) |
+| Cambios y revisiones posteriores | [`docs/REVISIONES_Y_CAMBIOS.md`](docs/REVISIONES_Y_CAMBIOS.md) |
+| Reproducirlo | `python scripts/run_all.py` (ver abajo) |
 
 ## El proceso en seis pasos
 
@@ -65,15 +65,18 @@ Más resultados:
 
 Requisitos: Python 3.10 o superior y `openpyxl` (`pip install -r requirements.txt`).
 
-```bash
-bash scripts/run_all.sh
+```
+python scripts/run_all.py
 ```
 
-El script hace todo el recorrido a partir de la hoja original (`datos/entrada/`) y de los resultados de la investigación (`datos/resultados/`):
+Funciona igual en Windows, macOS y Linux; en macOS y Linux también vale `bash scripts/run_all.sh`. El script hace todo el recorrido a partir de la hoja original (`datos/entrada/`) y de los resultados de la investigación (`datos/resultados/`):
 - rehace las tres clasificaciones;
 - genera el Excel en `salida/`;
 - produce los datos y las páginas del dashboard;
-- exporta el CSV.
+- exporta el CSV;
+- comprueba al final que no falta nada (`scripts/validate_dashboard_data.py`).
+
+No ejecutes `apply.py` a mano con solo algunos ficheros de resultados: reconstruye el Excel desde la hoja original y perderías los datos que no le pases. Por eso se niega a hacerlo.
 
 No consulta internet. La investigación ya está hecha y guardada en `datos/resultados/`. Para rehacerla o ampliarla, ver [docs/02-investigacion.md](docs/02-investigacion.md).
 
@@ -88,7 +91,9 @@ extramuros-entidades-publicas/
 ├── docs/                      método, investigación, criterio P100, duplicidades, Excel y dashboard, límites
 ├── datos/
 │   ├── entrada/               hoja original de 125 entidades (sin tocar)
-│   └── resultados/            JSON de cada encargo de investigación y de cada clasificación
+│   ├── resultados/            JSON de cada encargo de investigación y de cada clasificación
+│   ├── referencias_matriz.json  organismos de destino que no están entre las 125 (solo como referencia)
+│   └── matrices_en_inventario.json  destinos que sí tienen ficha propia
 ├── investigacion/
 │   ├── BRIEF*.md              instrucciones comunes de los encargos (método, columnas, formato)
 │   ├── headers.json, ejemplos.json, verificar.json
@@ -97,14 +102,17 @@ extramuros-entidades-publicas/
 │   ├── scripts-agentes/       scripts que escribieron los agentes para generar sus resultados
 │   └── notas/                 notas de trabajo de los agentes
 ├── scripts/
-│   ├── run_all.sh             todo el proceso
+│   ├── run_all.py             todo el proceso (run_all.sh es un atajo para macOS/Linux)
 │   ├── clasificacion.py       v1 (histórica): niveles A-D
 │   ├── clasificacion2.py      v2: función, tema, duplicidad, UE, actividad
 │   ├── clasificacion3.py      v3: veredicto alineado con el P100 (la vigente)
 │   ├── apply.py               vuelca los JSON en la hoja y crea las hojas de resumen
 │   ├── build_dash_data.py     datos del dashboard
+│   ├── destino_labels.py      nombres completos de los organismos de destino
 │   ├── build_dashboard.py     página del dashboard y vista previa
-│   └── export_csv.py          CSV plano de la clasificación
-├── dashboard/                 código del dashboard (estilo, marcado, cálculos, dibujo) y sus datos
+│   ├── export_csv.py          CSV plano de la clasificación
+│   ├── validate_dashboard_data.py  comprobaciones finales (datos completos, cálculos)
+│   └── serve_dashboard.ps1    servidor local para la vista previa en Windows
+├── dashboard/                 código del dashboard (estilo, marcado, cálculos, dibujo), sus datos y d3 en vendor/
 └── salida/                    Excel v5 y CSV
 ```

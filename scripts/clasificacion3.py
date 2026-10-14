@@ -12,7 +12,7 @@ RES = BASE / 'datos' / 'resultados'
 sys.path.insert(0, str(BASE / 'scripts'))
 from destino_labels import destino_para_mostrar
 
-prev = {e['ID']: e for e in json.load(open(RES / 'Z_clasificacion_v2.json'))}
+prev = {e['ID']: e for e in json.load(open(RES / 'Z_clasificacion_v2.json', encoding='utf-8'))}
 EXP, INF = 'Explícito en el P100', 'Aplicando el criterio del P100'
 
 # ID: (verdict, base kind, P100 reference, destino, a qué sirve / motivo)
@@ -50,10 +50,11 @@ put([30], 'Mantener', EXP, 'Inmigración 4 e Impuestos 3', None,
     'Inspecciona el trabajo y la Seguridad Social; el P100 le encarga perseguir la contratación irregular y los falsos autónomos.')
 put([36], 'Reformar', EXP, 'Costes del Estado 10', None,
     'Gestiona viviendas e inmuebles de Defensa; el P100 obliga a inventariar sus suelos y a vender o ceder lo que no tenga uso.')
-put([37, 38], 'Mantener', INF, 'Servicio directo (organismo autónomo estatal de cuenca)', None,
-    'Confederación hidrográfica: organismo autónomo de la AGE con personalidad propia, adscrito al ministerio de Medio Ambiente; gestiona la cuenca como pieza estatal, no una duplicidad autonómica. '
-    'El inventario solo recoge Miño-Sil y Cantábrico (creadas/transformadas en el periodo); Ebro, Tajo, Duero, Guadalquivir, etc. no están en las 125 fichas. '
-    'El P100 «Menos normas 12» limita el bloqueo de informes; no implica integrar ni suprimir la confederación.')
+put([37, 38], 'Mantener', INF, 'Servicio directo; Menos normas 12 solo cambia el régimen de sus informes', None,
+    'Confederación hidrográfica: organismo autónomo estatal que gestiona el agua de su cuenca; no duplica a ningún organismo autonómico. '
+    'La medida 12 de «Menos normas» cambia el régimen de sus informes (silencio favorable y plazo único), pero es un cambio de procedimiento '
+    'que afecta a todos los organismos que informan planes, igual que la medida 9 de Costes a la CNMC o la AIReF, que siguen en Mantener. '
+    'Solo Miño-Sil y Cantábrico están en el inventario (creadas o transformadas desde 2006); el resto de cuencas no tiene ficha.')
 put([66], 'Reformar', EXP, 'Crecer y producir 5', None,
     'Invierte los fondos del PERTE Chip y Next Tech; el P100 audita el PERTE Chip antes de comprometer un euro más y fija condiciones a quien recibe capital público.')
 put([44], 'Integrar', EXP, 'Derogar el sanchismo; Organización del Estado 5', 'Defensor del Pueblo',
@@ -159,5 +160,5 @@ for i in range(1, 126):
     if prev[i].get('fuentes_nuevas'):
         e['fuentes_nuevas'] = prev[i]['fuentes_nuevas']
     out.append(e)
-json.dump(out, open(RES / 'Z_clasificacion.json', 'w'), ensure_ascii=False, indent=1)
+json.dump(out, open(RES / 'Z_clasificacion.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(cnt, Counter(BIN[D[i][0]] for i in D))

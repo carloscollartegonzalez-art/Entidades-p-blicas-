@@ -1,6 +1,6 @@
-# Auditoría del dashboard (12/03/2026)
+# Auditoría del dashboard (13/10/2026)
 
-Repositorio auditado: fork [adelgadoIAG/Entidades-p-blicas-](https://github.com/adelgadoIAG/Entidades-p-blicas-), clon local `C:\Users\Holacons\Work\extramuros`.
+Repositorio auditado: fork [adelgadoIAG/Entidades-p-blicas-](https://github.com/adelgadoIAG/Entidades-p-blicas-).
 
 ## Resumen ejecutivo
 
@@ -14,8 +14,8 @@ Antes de dar por bueno el dashboard publicado:
 
 | Paso | Comprobación |
 |------|----------------|
-| 1 | Subir los 7 JSON de `dashboard/datos/` como assets del artifact |
-| 2 | Enlazar `datasets/entidades`, `personal_desglose`, `csic_personal`, `verificacion_muestra`, `gasto_capitulos`, `duplicidades`, `temas` a cada asset |
+| 1 | Subir los 8 JSON de `dashboard/datos/` como assets del artifact |
+| 2 | Enlazar `datasets/entidades`, `referencias_matriz`, `personal_desglose`, `csic_personal`, `verificacion_muestra`, `gasto_capitulos`, `duplicidades`, `temas` a cada asset |
 | 3 | Sustituir `files/index.html` por el `dashboard/index.html` generado (no editar a mano) |
 | 4 | Tras cambiar datos o `app.js`/`calcs.js`, volver a ejecutar `python scripts/build_dashboard.py` y repetir 1–3 en el mismo paso |
 | 5 | Probar las seis pestañas; en consola no debe haber `dash.data(...).status === 'error'` |
@@ -27,10 +27,10 @@ Antes de dar por bueno el dashboard publicado:
 | Comprobación | Resultado |
 |--------------|-----------|
 | Filas en `entidades.json` | 125 (coherente con README) |
-| Reparto veredictos | Mantener 25, Reformar 6, Integrar 34, Suprimir 43, Pendiente 4, Extinguida 13 |
+| Reparto veredictos | Antes de la revisión: Mantener 25, Reformar 6. Después (confederaciones a Mantener): Mantener 27, Reformar 4. Integrar 34, Suprimir 43, Pendiente 4 y Extinguida 13, sin cambios |
 | `python scripts/build_dashboard.py` en Windows | Fallaba con `UnicodeDecodeError` (cp1252); corregido con `encoding='utf-8'` en el builder |
 | `python scripts/validate_dashboard_data.py` | Debe pasar tras regenerar `preview.html` |
-| Preview servido con `scripts/serve_dashboard.ps1` | `http://localhost:8766/dashboard/preview.html` |
+| Preview servido con `python -m http.server 8766` (o `scripts/serve_dashboard.ps1` en Windows) | `http://localhost:8766/dashboard/preview.html` |
 
 ## Hallazgos técnicos (código)
 
@@ -58,10 +58,10 @@ Ver [06-limites-y-pendientes.md](06-limites-y-pendientes.md): 93 celdas de dupli
 
 ## Comandos útiles
 
-```powershell
-cd C:\Users\Holacons\Work\extramuros
+Desde la raíz del repositorio (Windows, macOS o Linux):
+
+```
 python -m pip install -r requirements.txt
-python scripts/build_dashboard.py
-python scripts/validate_dashboard_data.py
-.\scripts\serve_dashboard.ps1
+python scripts/run_all.py          # regenera todo y valida al final
+python -m http.server 8766         # y abrir http://localhost:8766/dashboard/preview.html
 ```

@@ -328,7 +328,7 @@
   <section class="ep-page" id="entidades" role="tabpanel" aria-labelledby="tab-entidades" hidden>
     <div class="ep-card ep-card--wide" id="card-tabla">
       <h2>Todas las entidades</h2>
-      <p class="ep-note">Pulsa una fila para ver el detalle. La columna «Matriz / integración» indica el organismo que absorbería la función (veredicto Integrar) o, si no hay equivalente estatal, por qué no aplica (p. ej. 112 autonómico). Cifras en M€; vacío significa sin cifra verificada, no cero.</p>
+      <p class="ep-note">Pulsa una fila para ver el detalle. La columna «Matriz / integración» indica el organismo que absorbería la función (veredicto Integrar) o, si no hay equivalente estatal, por qué no aplica (p. ej. 112 autonómico). Cifras en M€; vacío significa sin cifra verificada, no cero. Las filas «Referencia» son organismos de destino que no están entre las 125: no cuentan en ningún total, y su importe es de 2023 y de otra base (transferencia, dotación o subvención; ver detalle), así que no es comparable con el presupuesto propio 2026 de las demás.</p>
       <div class="ep-filters">
         <label class="ep-field" for="f-q">Buscar<input class="ep-in" id="f-q" type="search" placeholder="CSIC, observatorio, Andalucía…"></label>
         <label class="ep-field" for="f-clase">Útil o no<select class="ep-in" id="f-clase"><option value="">Todos</option></select></label>
@@ -913,8 +913,9 @@
   function drawTabla() {
     buildFilters();
     const data = filtered();
-    const nRef = ok('referencias_matriz') ? rows('referencias_matriz').length : 0;
-    $('#f-count').textContent = ok('entidades') ? `Mostrando ${fInt(data.length)} de ${fInt(rows('entidades').length)}${nRef ? ` (+ ${fInt(nRef)} referencia de matriz)` : ''}` : '';
+    const nRef = data.filter((e) => e.referencia_matriz).length;
+    const nEnt = data.length - nRef;
+    $('#f-count').textContent = ok('entidades') ? `Mostrando ${fInt(nEnt)} de ${fInt(rows('entidades').length)} entidades${nRef ? ` y ${fInt(nRef)} ${nRef === 1 ? 'fila' : 'filas'} de referencia` : ''}` : '';
     document.querySelectorAll('#tabla-entidades th').forEach((th) => { const f = th.getAttribute('data-field'); th.setAttribute('aria-sort', f === state.sort ? (state.dir > 0 ? 'ascending' : 'descending') : 'none'); });
     $('#tabla-entidades tbody').replaceChildren(...data.map((e) => {
       const tr = el('tr', 'ep-click' + (state.sel === e.id ? ' ep-sel' : '')); tr.dataset.key = String(e.id);
@@ -924,7 +925,7 @@
       if (mi.text) { const sp = el('span', mi.cls, mi.text); if (mi.title) sp.title = mi.title; md.appendChild(sp); }
       const ct = el('td'); ct.appendChild(el('span', 'ep-clip', e.tema || ''));
       tr.append(el('td', 'ep-name', e.nombre), el('td', null, e.ccaa), cv, md, el('td', null, e.funcion), ct,
-        el('td', 'ep-num', fmtM(e.presupuesto_m)), el('td', 'ep-num', fmtM(e.cap1_m)), el('td', 'ep-num', fmtN(e.personas)), el('td', null, e.verificacion));
+        el('td', 'ep-num', e.referencia_matriz && e.presupuesto_m != null ? `${fmtM(e.presupuesto_m)} (${e.presupuesto_anio})` : fmtM(e.presupuesto_m)), el('td', 'ep-num', fmtM(e.cap1_m)), el('td', 'ep-num', fmtN(e.personas)), el('td', null, e.verificacion));
       return tr;
     }));
     drawDetalle();

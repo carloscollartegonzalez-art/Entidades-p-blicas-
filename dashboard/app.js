@@ -262,8 +262,9 @@
   function drawTabla() {
     buildFilters();
     const data = filtered();
-    const nRef = ok('referencias_matriz') ? rows('referencias_matriz').length : 0;
-    $('#f-count').textContent = ok('entidades') ? `Mostrando ${fInt(data.length)} de ${fInt(rows('entidades').length)}${nRef ? ` (+ ${fInt(nRef)} referencia de matriz)` : ''}` : '';
+    const nRef = data.filter((e) => e.referencia_matriz).length;
+    const nEnt = data.length - nRef;
+    $('#f-count').textContent = ok('entidades') ? `Mostrando ${fInt(nEnt)} de ${fInt(rows('entidades').length)} entidades${nRef ? ` y ${fInt(nRef)} ${nRef === 1 ? 'fila' : 'filas'} de referencia` : ''}` : '';
     document.querySelectorAll('#tabla-entidades th').forEach((th) => { const f = th.getAttribute('data-field'); th.setAttribute('aria-sort', f === state.sort ? (state.dir > 0 ? 'ascending' : 'descending') : 'none'); });
     $('#tabla-entidades tbody').replaceChildren(...data.map((e) => {
       const tr = el('tr', 'ep-click' + (state.sel === e.id ? ' ep-sel' : '')); tr.dataset.key = String(e.id);
@@ -273,7 +274,7 @@
       if (mi.text) { const sp = el('span', mi.cls, mi.text); if (mi.title) sp.title = mi.title; md.appendChild(sp); }
       const ct = el('td'); ct.appendChild(el('span', 'ep-clip', e.tema || ''));
       tr.append(el('td', 'ep-name', e.nombre), el('td', null, e.ccaa), cv, md, el('td', null, e.funcion), ct,
-        el('td', 'ep-num', fmtM(e.presupuesto_m)), el('td', 'ep-num', fmtM(e.cap1_m)), el('td', 'ep-num', fmtN(e.personas)), el('td', null, e.verificacion));
+        el('td', 'ep-num', e.referencia_matriz && e.presupuesto_m != null ? `${fmtM(e.presupuesto_m)} (${e.presupuesto_anio})` : fmtM(e.presupuesto_m)), el('td', 'ep-num', fmtM(e.cap1_m)), el('td', 'ep-num', fmtN(e.personas)), el('td', null, e.verificacion));
       return tr;
     }));
     drawDetalle();
