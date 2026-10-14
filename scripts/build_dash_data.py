@@ -16,7 +16,7 @@ def g(r, k):
     return v.strip() if isinstance(v, str) else v
 def num(v):
     return round(float(v), 6) if isinstance(v, (int, float)) else None
-sample = {e['ID'] for e in json.load(open(RES / 'verificacion.json'))}
+sample = {e['ID'] for e in json.load(open(RES / 'verificacion.json', encoding='utf-8'))}
 ent, des = [], []
 for r in range(2, ws.max_row + 1):
     i = int(g(r, 'ID'))
@@ -81,11 +81,11 @@ csic = [
 assert sum(c['personas'] for c in csic) == 17471
 ver = [{'id': e['ID'], 'campo': e['campo'], 'valor_hoja': e['valor_hoja'], 'valor_fuente': str(e.get('valor_fuente_literal')),
         'unidad': e.get('unidad'), 'resultado': e['resultado'], 'url': e.get('url'), 'nota': e.get('nota')}
-       for e in json.load(open(RES / 'verificacion.json'))]
+       for e in json.load(open(RES / 'verificacion.json', encoding='utf-8'))]
 names = {e['id']: e['nombre'] for e in ent}
 for v in ver: v['nombre'] = names[v['id']]
 gasto = []
-for e in json.load(open(RES / 'gasto_csic_cnmc.json')):
+for e in json.load(open(RES / 'gasto_csic_cnmc.json', encoding='utf-8')):
     corto = 'CNMC' if e['ID'] == 24 else 'CSIC'
     for c in e['capitulos']:
         cap = c['capitulo']
@@ -111,7 +111,7 @@ for r in refs:
     r['destino_mostrar'] = destino_para_mostrar(r.get('destino'))
 for n, d in [('gasto_capitulos', gasto), ('entidades', ent), ('referencias_matriz', refs),
              ('personal_desglose', des), ('csic_personal', csic), ('verificacion_muestra', ver)]:
-    json.dump(d, open(DASH / f'{n}.json', 'w'), ensure_ascii=False)
+    json.dump(d, open(DASH / f'{n}.json', 'w', encoding='utf-8'), ensure_ascii=False)
     print(n, len(d), len(json.dumps(d, ensure_ascii=False)))
 from collections import Counter
 print(Counter(e['verificacion'] for e in ent))

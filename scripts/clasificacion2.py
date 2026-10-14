@@ -10,12 +10,12 @@ DASH = BASE / 'dashboard' / 'datos'
 import json, glob
 from collections import Counter
 
-old = {e['ID']: e['updates'] for e in json.load(open(RES / 'Z_clasificacion_v1.json'))}
+old = {e['ID']: e['updates'] for e in json.load(open(RES / 'Z_clasificacion_v1.json', encoding='utf-8'))}
 CC = ['Andalucía', 'Aragón', 'Asturias', 'Illes Balears', 'Canarias', 'Cantabria', 'Castilla-La Mancha', 'Castilla y León',
       'Cataluña', 'Comunitat Valenciana', 'Extremadura', 'Galicia', 'Madrid', 'Murcia', 'Navarra', 'País Vasco', 'La Rioja']
 temas = []
 for f in sorted(glob.glob(str(RES / 'DUP*.json'))):
-    temas += json.load(open(f))
+    temas += json.load(open(f, encoding='utf-8'))
 T = {t['tema']: t for t in temas}
 STATE_N = {'Entes de emergencias 112': 0, 'Agencias de ciberseguridad': 2, 'Agencias de investigación e innovación': 2}
 ESTADO_CORTO = {
@@ -174,7 +174,7 @@ for i, (fn, tema, kind, ov) in sorted(M.items()):
     }})
 
 # support of consultative bodies
-ap = {e['ID']: e for e in json.load(open(RES / 'C_apoyo.json'))}
+ap = {e['ID']: e for e in json.load(open(RES / 'C_apoyo.json', encoding='utf-8'))}
 for e in out:
     a = ap.get(e['ID'])
     if not a:
@@ -189,7 +189,7 @@ for e in out:
     if a.get('fuente', '').startswith('https://'):
         e['fuentes_nuevas'] = [a['fuente']]
 
-json.dump(out, open(RES / 'Z_clasificacion_v2.json', 'w'), ensure_ascii=False, indent=1)
+json.dump(out, open(RES / 'Z_clasificacion_v2.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(cnt)
 
 # dashboard datasets for duplication
@@ -215,7 +215,7 @@ for t in temas:
     tema_rows.append({'tema': t['tema'], 'organismo_estatal': ESTADO_CORTO[t['tema']],
                       'competencia': (t.get('competencia') or '')[:400], 'cobertura_estatal': (t.get('cobertura_estatal') or '')[:400],
                       'cubre_estado': t['tema'] in CUBRE})
-json.dump(dup_rows, open(DASH / 'duplicidades.json', 'w'), ensure_ascii=False)
-json.dump(tema_rows, open(DASH / 'temas.json', 'w'), ensure_ascii=False)
+json.dump(dup_rows, open(DASH / 'duplicidades.json', 'w', encoding='utf-8'), ensure_ascii=False)
+json.dump(tema_rows, open(DASH / 'temas.json', 'w', encoding='utf-8'), ensure_ascii=False)
 for t, n in sorted(conteo.items(), key=lambda x: -x[1]['total']):
     print(f"{n['total']:>3} (+{n['no_verificado']} sin verificar)  {t}")

@@ -3,6 +3,8 @@
 Usage (from repo root): python scripts/validate_dashboard_data.py
 """
 import json
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 import re
 import sys
 from pathlib import Path
@@ -36,6 +38,27 @@ def main() -> int:
             errors.append(f'{path.name}: root must be a JSON array')
         elif name == 'entidades' and len(data) != 125:
             errors.append(f'entidades.json: expected 125 rows, got {len(data)}')
+
+    # Guard against a workbook rebuilt without the research results (apply.py with a subset of files):
+    # the dashboard must have more budgets than the original sheet and a non-empty staff breakdown.
+    try:
+        import openpyxl
+        ent = json.loads((D / 'datos' / 'entidades.json').read_text(encoding=ENC))
+        des = json.loads((D / 'datos' / 'personal_desglose.json').read_text(encoding=ENC))
+        ws = openpyxl.load_workbook(BASE / 'datos' / 'entrada' / 'Entidades_publicas_poder_y_presupuesto_final_125.xlsx',
+                                    read_only=True)['Hoja 1']
+        rows = list(ws.iter_rows(values_only=True))
+        col = rows[0].index('Presupuesto propio (EUR millones)')
+        n_orig = sum(1 for r in rows[1:] if isinstance(r[col], (int, float)))
+        n_dash = sum(1 for e in ent if e.get('presupuesto_m') is not None)
+        if n_dash <= n_orig:
+            errors.append(f'entidades.json tiene {n_dash} presupuestos, no más que la hoja original ({n_orig}): '
+                          'el Excel se generó sin los resultados de la investigación. Ejecuta python scripts/run_all.py')
+        if not des:
+            errors.append('personal_desglose.json está vacío: el Excel se generó sin los resultados de personal (P1-P6). '
+                          'Ejecuta python scripts/run_all.py')
+    except Exception as exc:  # pragma: no cover
+        errors.append(f'no se pudo comprobar la cobertura de datos: {exc}')
 
     calcs = (D / 'calcs.js').read_text(encoding=ENC)
     calc_defs = CALC_RE.findall(calcs)

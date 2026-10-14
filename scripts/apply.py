@@ -1,5 +1,15 @@
-"""Apply research results to the workbook. Re-runnable: always starts from datos/entrada/Entidades_publicas_poder_y_presupuesto_final_125.xlsx.
-Usage: python3 scripts/apply.py out.xlsx datos/resultados/<lote>.json ...  (files applied in the given order; later wins)
+"""Rebuilds the workbook: original sheet + every research result + the classification.
+
+It ALWAYS starts from datos/entrada/Entidades_publicas_poder_y_presupuesto_final_125.xlsx, so the
+research data only survives if every results file is applied. With no file arguments it uses the
+full list below (ORDEN), which is what scripts/run_all.py does. If you pass a subset it stops,
+because that would silently drop data; add --parcial only if you really want a partial workbook.
+
+Usage:
+  python scripts/apply.py                    # full rebuild into salida/Entidades_publicas_poder_y_presupuesto_v5.xlsx
+  python scripts/apply.py out.xlsx           # full rebuild into out.xlsx
+  python scripts/apply.py out.xlsx a.json b.json --parcial   # only these files (data from the others is lost)
+Files are applied in the given order; when two touch the same cell, the later one wins.
 """
 from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent  # raíz del repositorio
@@ -10,8 +20,25 @@ from openpyxl.styles import PatternFill, Font, Alignment
 from openpyxl.utils import get_column_letter as L
 
 SRC = BASE / 'datos' / 'entrada' / 'Entidades_publicas_poder_y_presupuesto_final_125.xlsx'
-out = sys.argv[1]
-files = sys.argv[2:]
+# Every results file, in the order they must be applied (the classification goes last).
+ORDEN = [
+    'A_estatal_entes.json', 'B1_estatal_colegiados.json', 'B2_estatal_colegiados.json', 'C_estatal_plantillas.json',
+    'D_andalucia_aragon.json', 'E_ast_bal_can_cant.json', 'F_clm_cyl_cat_ext_gal.json', 'G_mad_mur_nav_pv_rio_val.json',
+    'R2A_estatal.json', 'R2B_colegiados.json', 'R2C_andalucia_aragon.json', 'R2D_ast_bal_can_cant.json', 'R2E_varias.json',
+    'P1_investigacion.json', 'P2_reguladores.json', 'P3_estatal_otros.json', 'P4_andalucia_aragon.json',
+    'P5_ast_bal_can_cant_cat.json', 'P6_gal_mad_mur_nav_pv_val.json',
+    'Z_clasificacion.json',
+]
+_args = [a for a in sys.argv[1:] if a != '--parcial']
+PARCIAL = '--parcial' in sys.argv[1:]
+out = _args[0] if _args else str(BASE / 'salida' / 'Entidades_publicas_poder_y_presupuesto_v5.xlsx')
+files = _args[1:] or [str(RES / f) for f in ORDEN]
+_missing = [f for f in ORDEN if f not in {Path(x).name for x in files}]
+if _missing and not PARCIAL:
+    sys.exit('apply.py: faltan ficheros de resultados y se perderían sus datos, porque el Excel se reconstruye '
+             'siempre desde la hoja original.\n  Faltan: ' + ', '.join(_missing) +
+             '\n  Ejecuta `python scripts/run_all.py` (o `python scripts/apply.py` sin ficheros) para usar la lista completa.'
+             '\n  Si de verdad quieres un Excel parcial, añade --parcial.')
 
 REV_DATE = '12/10/2026'
 FILL = PatternFill('solid', fgColor='FFFFF2CC')
@@ -101,7 +128,7 @@ notes = {}        # ID -> dict(verificacion, no_encontrado, lote)
 extra_sources = {}
 for f in files:
     lote = f.split('/')[-1].replace('.json', '')
-    for e in json.load(open(f)):
+    for e in json.load(open(f, encoding='utf-8')):
         i = int(e['ID'])
         upd = dict(e.get('updates', {}))
         for k in list(upd):
@@ -339,7 +366,7 @@ head = ['Tema', 'Organismo estatal'] + CCs + ['CCAA con organismo propio', 'CCAA
 dsh.append(head)
 temas_all = []
 for f in sorted(_g.glob(str(RES / 'DUP*.json'))):
-    temas_all += json.load(open(f))
+    temas_all += json.load(open(f, encoding='utf-8'))
 for t in temas_all:
     r = dsh.max_row + 1
     row = [t['tema'], (t.get('estado') or {}).get('nombre')]
@@ -383,7 +410,7 @@ if 'Gasto CNMC y CSIC' in wb.sheetnames:
     del wb['Gasto CNMC y CSIC']
 gs = wb.create_sheet('Gasto CNMC y CSIC')
 gs.append(['Entidad', 'Capítulo', 'Crédito inicial 2026 (= PGE 2023 prorrogado), EUR millones', 'Crédito actualizado a 31/08/2026, EUR millones', 'A qué se destina', '¿Gasto propio o de paso?'])
-for e in json.load(open(RES / 'gasto_csic_cnmc.json')):
+for e in json.load(open(RES / 'gasto_csic_cnmc.json', encoding='utf-8')):
     for c in e['capitulos']:
         if c.get('importe_m') is None and c.get('importe_inicial_m') is None:
             continue
