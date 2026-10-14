@@ -33,16 +33,16 @@ Las medidas se citan por su apartado y número («Costes del Estado 2»). El P10
 
 Cada ficha lleva tres columnas que justifican el veredicto:
 - **Base en el P100:**
-  - «Explícito en el P100: …» (57 fichas): el P100 nombra el organismo o su categoría.
-  - «Aplicando el criterio del P100: …» (51): es una deducción a partir del P100 y conviene validarla.
+  - «Explícito en el P100: …» (55 fichas): el P100 nombra el organismo o su categoría.
+  - «Aplicando el criterio del P100: …» (53): es una deducción a partir del P100 y conviene validarla.
   - «El P100 no trata…» (4).
 - **Destino de sus funciones:** solo en Integrar y en algunos Suprimir.
 - **Motivo:** a qué sirve hoy el organismo, en una frase.
 
 ## Resultado
 
-### Mantener (25)
-- **Estatales:** AESA, Antidopaje (CELAD), AEI, AIReF, AESF, Oficina de Supervisión de la Contratación, CNMC, AICA, Inspección de Trabajo, BOE, CSIC, AEMET, AEMPS, SEPIE, AESIA, Agencia Estatal de Administración Digital y Autoridad de Protección del Informante.
+### Mantener (27)
+- **Estatales:** AESA, Antidopaje (CELAD), AEI, AIReF, AESF, Oficina de Supervisión de la Contratación, CNMC, AICA, Inspección de Trabajo, BOE, CSIC, AEMET, AEMPS, SEPIE, AESIA, Agencia Estatal de Administración Digital, Autoridad de Protección del Informante y las confederaciones hidrográficas del Miño-Sil y del Cantábrico.
 - **Autonómicas sin equivalente estatal:**
   - emergencias de Asturias, Andalucía y Cantabria (el Estado no presta el 112);
   - servicios sociales de Cantabria;
@@ -51,15 +51,16 @@ Cada ficha lleva tres columnas que justifican el veredicto:
   - puertos deportivos del País Vasco;
   - calidad alimentaria de Galicia.
 
-### Reformar (6)
+### Reformar (4)
 
 | Organismo | Cambio | Base |
 |---|---|---|
 | CTBG | Fuera del alcance del Gobierno; absorbe los consejos autonómicos | Organización del Estado 11 |
 | AECID | Solo ayuda humanitaria y países que colaboran en migración | Costes 5 |
 | INVIED | Inventario y venta o cesión de suelos sin uso | Costes 10 |
-| Confederaciones del Miño-Sil y del Cantábrico | Sus informes dejan de bloquear | Menos normas 12 |
 | SETT | Auditoría del PERTE Chip | Crecer y producir 5 |
+
+Las confederaciones hidrográficas del Miño-Sil y del Cantábrico estaban en Reformar y pasaron a **Mantener** en la revisión del 13/10/2026. Son organismos autónomos estatales de cuenca y no duplican a ningún organismo autonómico. La medida 12 de «Menos normas» cambia el régimen de sus informes, pero es un cambio de procedimiento que afecta a todos los que informan planes, igual que la medida 9 de Costes a la CNMC o la AIReF, que siguen en Mantener. Reformar queda para los organismos a los que el P100 cambia a ellos mismos. Ver [REVISIONES_Y_CAMBIOS.md](REVISIONES_Y_CAMBIOS.md).
 
 ### Integrar (34), por destino
 
@@ -81,6 +82,8 @@ Cada ficha lleva tres columnas que justifican el veredicto:
 | Defensor del Pueblo | Autoridad para la Igualdad de Trato |
 | Consejería | Salud laboral y formación de empleados públicos de Cantabria, turismo de Murcia, salud pública de Baleares, agencia empresarial de Andalucía |
 
+Los organismos de destino que no están entre las 125 fichas (CDTI, AEAT, ANECA, AEPD, Defensor del Pueblo, IDAE, INCIBE y CCN-CERT) aparecen en el dashboard como filas de **referencia** (ids 9001–9008, en `datos/referencias_matriz.json`). No cuentan en ningún total. Su importe es de 2023 y de bases distintas (transferencia, dotación, subvención o total de ingresos), así que no se compara con el presupuesto propio 2026 de las fichas. AEI, CNMC, CTBG y AIReF ya tienen ficha propia (ids 4, 24, 6 y 5).
+
 ### Suprimir (43)
 - **35 observatorios, consejos, mesas y comisiones estatales** (Costes 2).
 - **Fundación Pluralismo y Convivencia** (Costes 2 y 3).
@@ -97,7 +100,8 @@ Estos órganos no tienen presupuesto propio, pero sí coste de personal. Hay un 
 - À Punt (radiotelevisión valenciana).
 
 ### Casos discutibles resueltos con criterio propio
-- **Emergencias autonómicas: Mantener.** El 112 es autonómico en toda España y el Estado no lo presta.
+- **Emergencias autonómicas: Mantener.** El 112 es autonómico en toda España y el Estado no lo presta. Un «mando único» dentro de la comunidad (112, bomberos y formación juntos, como en Andalucía) no es el «Integrar» del P100, que significa pasar la función a un organismo nacional.
+- **Confederaciones hidrográficas: Mantener y no Reformar** (revisión del 13/10/2026; ver arriba).
 - **Instituto de Salud de Andalucía: Suprimir y no Integrar,** porque no ha empezado a funcionar.
 - **AGACAL (Galicia): Mantener,** por la línea de soberanía alimentaria del P100. Podría discutirse frente a la AICA.
 
@@ -106,7 +110,7 @@ Estos órganos no tienen presupuesto propio, pero sí coste de personal. Hay un 
 Todo está en [`scripts/clasificacion3.py`](../scripts/clasificacion3.py), en el diccionario `D`. Cada llamada a `put([...ids], veredicto, tipo de base, referencia, destino, motivo)` fija el veredicto de un grupo de fichas. Para cambiar uno:
 
 1. Mueve el ID a otra llamada `put` o crea una nueva. El script comprueba que las 125 fichas tienen veredicto.
-2. Ejecuta `bash scripts/run_all.sh`.
+2. Ejecuta `python scripts/run_all.py`.
 3. Revisa los recuentos en la hoja «Entidades» o en el CSV.
 
 ## Versiones anteriores (historia)

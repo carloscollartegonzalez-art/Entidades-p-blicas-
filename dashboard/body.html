@@ -17,12 +17,12 @@
   </header>
 
   <nav class="ep-tabs" role="tablist" aria-label="Secciones">
-    <button class="ep-tab" role="tab" id="tab-resumen" data-page="resumen" aria-selected="true">Resumen</button>
-    <button class="ep-tab" role="tab" id="tab-duplicidades" data-page="duplicidades" aria-selected="false">Duplicidades</button>
-    <button class="ep-tab" role="tab" id="tab-entidades" data-page="entidades" aria-selected="false">Todas las entidades</button>
-    <button class="ep-tab" role="tab" id="tab-personal" data-page="personal" aria-selected="false">Personal</button>
-    <button class="ep-tab" role="tab" id="tab-indicadores" data-page="indicadores" aria-selected="false">Indicadores</button>
-    <button class="ep-tab" role="tab" id="tab-verificacion" data-page="verificacion" aria-selected="false">Verificación y pendientes</button>
+    <button type="button" class="ep-tab" role="tab" id="tab-resumen" data-page="resumen" aria-selected="true">Resumen</button>
+    <button type="button" class="ep-tab" role="tab" id="tab-duplicidades" data-page="duplicidades" aria-selected="false">Duplicidades</button>
+    <button type="button" class="ep-tab" role="tab" id="tab-entidades" data-page="entidades" aria-selected="false">Todas las entidades</button>
+    <button type="button" class="ep-tab" role="tab" id="tab-personal" data-page="personal" aria-selected="false">Personal</button>
+    <button type="button" class="ep-tab" role="tab" id="tab-indicadores" data-page="indicadores" aria-selected="false">Indicadores</button>
+    <button type="button" class="ep-tab" role="tab" id="tab-verificacion" data-page="verificacion" aria-selected="false">Verificación y pendientes</button>
   </nav>
 
   <!-- RESUMEN -->
@@ -196,7 +196,7 @@
   <section class="ep-page" id="duplicidades" role="tabpanel" aria-labelledby="tab-duplicidades" hidden>
     <div class="ep-card ep-card--wide" id="card-matriz">
       <h2>Mismo tema, ¿cuántos organismos?</h2>
-      <p class="ep-note">Para cada tema, el organismo estatal y si cada comunidad tiene uno propio. El máximo posible es 18 (Estado y 17 comunidades). Pasa el cursor por una celda para ver el nombre; cada celda tiene su fuente oficial en el Excel.</p>
+      <p class="ep-note">Para cada tema, el organismo estatal y si cada comunidad tiene uno propio. El máximo posible es 18 (Estado y 17 comunidades). Pasa el cursor por una celda para ver el nombre; cada celda tiene su fuente oficial en el Excel. <b>Entes de emergencias 112:</b> no hay agencia estatal que preste el 112 (solo DG de Protección Civil, coordinación); los 17 centros son autonómicos — la matriz de integración no aplica como en otros temas.</p>
       <div class="ep-legend" id="legend-matriz"></div>
       <div class="ep-hscroll"><div class="ep-chart ep-matrix dash-skeleton" id="chart-matriz" data-source="duplicidades temas_conteo" style="min-height: 560px"></div></div>
     </div>
@@ -242,7 +242,7 @@
   <section class="ep-page" id="entidades" role="tabpanel" aria-labelledby="tab-entidades" hidden>
     <div class="ep-card ep-card--wide" id="card-tabla">
       <h2>Todas las entidades</h2>
-      <p class="ep-note">Pulsa una fila para ver el motivo del veredicto, su base en el P100, a dónde irían sus funciones, la duplicidad, el coste de apoyo y la fuente. Cifras en M€; vacío significa sin cifra verificada, no cero.</p>
+      <p class="ep-note">Pulsa una fila para ver el detalle. La columna «Matriz / integración» indica el organismo que absorbería la función (veredicto Integrar) o, si no hay equivalente estatal, por qué no aplica (p. ej. 112 autonómico). Cifras en M€; vacío significa sin cifra verificada, no cero. Las filas «Referencia» son organismos de destino que no están entre las 125: no cuentan en ningún total, y su importe es de 2023 y de otra base (transferencia, dotación o subvención; ver detalle), así que no es comparable con el presupuesto propio 2026 de las demás.</p>
       <div class="ep-filters">
         <label class="ep-field" for="f-q">Buscar<input class="ep-in" id="f-q" type="search" placeholder="CSIC, observatorio, Andalucía…"></label>
         <label class="ep-field" for="f-clase">Útil o no<select class="ep-in" id="f-clase"><option value="">Todos</option></select></label>
@@ -259,6 +259,7 @@
             <th data-field="nombre"><button class="ep-th-btn" type="button" data-sort="nombre">Entidad</button></th>
             <th data-field="ccaa"><button class="ep-th-btn" type="button" data-sort="ccaa">Ámbito</button></th>
             <th data-field="veredicto"><button class="ep-th-btn" type="button" data-sort="veredicto">Veredicto</button></th>
+            <th data-field="destino"><button class="ep-th-btn" type="button" data-sort="destino">Matriz / integración</button></th>
             <th data-field="funcion"><button class="ep-th-btn" type="button" data-sort="funcion">Función</button></th>
             <th data-field="tema"><button class="ep-th-btn" type="button" data-sort="tema">Tema</button></th>
             <th class="ep-num" data-field="presupuesto_m"><button class="ep-th-btn" type="button" data-sort="presupuesto_m">Presupuesto</button></th>

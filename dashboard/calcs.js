@@ -36,7 +36,7 @@
     inputs: ['entidades'], title: 'Integrar: a dónde iría cada función',
     description: 'Fichas con veredicto Integrar, con su presupuesto propio 2026 y el organismo que asumiría la función.',
     fn: (entidades) => entidades.filter((e) => e.veredicto === 'Integrar')
-      .map((e) => ({ id: e.id, nombre: e.nombre, ccaa: e.ccaa, presupuesto_m: e.presupuesto_anio === 2026 ? e.presupuesto_m : null, destino: e.destino }))
+      .map((e) => ({ id: e.id, nombre: e.nombre, ccaa: e.ccaa, presupuesto_m: e.presupuesto_anio === 2026 ? e.presupuesto_m : null, destino: e.destino_mostrar || e.destino }))
       .sort((a, b) => (a.destino || '').localeCompare(b.destino || '', 'es') || (b.presupuesto_m || 0) - (a.presupuesto_m || 0)),
   });
   dash.calc('por_funcion', {
@@ -116,7 +116,7 @@
   dash.calc('indicadores', {
     inputs: ['entidades', 'personal_desglose'], title: 'Indicadores comparables',
     description: 'Coste de personal 2025 por persona ocupada; capítulo 1 sobre presupuesto propio 2026; personal de administración sobre el total del desglose.',
-    fn: (entidades, personal_desglose) => entidades.map((e) => {
+    fn: (entidades, personal_desglose) => entidades.filter((e) => !e.referencia_matriz).map((e) => {
       const d = personal_desglose.find((p) => p.id === e.id);
       return { id: e.id, nombre: e.nombre, veredicto: e.veredicto,
         coste_persona: e.gasto_personal_2025_m > 0 && e.personas > 0 ? Math.round(e.gasto_personal_2025_m * 1e6 / e.personas) : null,

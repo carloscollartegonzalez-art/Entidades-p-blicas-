@@ -4,7 +4,7 @@ Writes two files in dashboard/:
 - index.html: the page as published in the Claude "Dashboard" artifact (style + markup + calculations + drawing code).
   The artifact runtime provides the `dash` object, the CSS tokens and d3; the datasets are uploaded separately.
 - preview.html: a standalone copy that opens in any browser without Claude. It inlines the datasets from
-  dashboard/datos/, loads d3 from cdnjs and adds a minimal `dash` stand-in and fallback CSS tokens.
+  dashboard/datos/, loads d3 from dashboard/vendor/d3.min.js and adds a minimal `dash` stand-in and fallback CSS tokens.
   It is for checking content, not a pixel-exact copy of the published dashboard.
 
 Usage: python3 scripts/build_dashboard.py
@@ -14,18 +14,20 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 D = BASE / 'dashboard'
-DATASETS = ['entidades', 'personal_desglose', 'csic_personal', 'verificacion_muestra',
+ENC = 'utf-8'
+DATASETS = ['entidades', 'referencias_matriz', 'personal_desglose', 'csic_personal', 'verificacion_muestra',
             'gasto_capitulos', 'duplicidades', 'temas']
+D3 = D / 'vendor' / 'd3.min.js'
 
-style = (D / 'style.css').read_text()
-body = (D / 'body.html').read_text()
-calcs = (D / 'calcs.js').read_text()
-app = (D / 'app.js').read_text()
+style = (D / 'style.css').read_text(encoding=ENC)
+body = (D / 'body.html').read_text(encoding=ENC)
+calcs = (D / 'calcs.js').read_text(encoding=ENC)
+app = (D / 'app.js').read_text(encoding=ENC)
 
 page = f"{style}{body}<script>\n{calcs}</script>\n<script>\n{app}</script>\n"
-(D / 'index.html').write_text(page)
+(D / 'index.html').write_text(page, encoding=ENC)
 
-data = {n: json.loads((D / 'datos' / f'{n}.json').read_text()) for n in DATASETS}
+data = {n: json.loads((D / 'datos' / f'{n}.json').read_text(encoding=ENC)) for n in DATASETS}
 
 TOKENS = """<style>
 :root {
@@ -69,10 +71,14 @@ window.__DATA = %s;
 })();
 </script>""" % json.dumps(data, ensure_ascii=False)
 
+if not D3.is_file():
+    raise SystemExit(f'Missing {D3.relative_to(BASE)} — run: curl -o dashboard/vendor/d3.min.js '
+                     'https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js')
+
 preview = ("<!doctype html><html lang=\"es\"><head><meta charset=\"utf-8\">"
            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
            "<title>Entidades públicas: vista previa</title>"
-           "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js\"></script>"
+           "<script src=\"vendor/d3.min.js\"></script>"
            f"{TOKENS}{STUB}</head><body><div id=\"dash-root\">{page}</div></body></html>")
-(D / 'preview.html').write_text(preview)
+(D / 'preview.html').write_text(preview, encoding=ENC)
 print('dashboard/index.html', len(page), '| dashboard/preview.html', len(preview))

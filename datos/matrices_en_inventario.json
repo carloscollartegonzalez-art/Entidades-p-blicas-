@@ -1,0 +1,26 @@
+[
+  {
+    "inventario_id": 4,
+    "nombre_corto": "AEI",
+    "tema": "Agencias de investigación e innovación",
+    "nota": "Matriz estatal con ficha completa en el inventario; no duplicar en referencias_matriz."
+  },
+  {
+    "inventario_id": 24,
+    "nombre_corto": "CNMC",
+    "tema": "Agencias de defensa de la competencia",
+    "nota": "Matriz estatal con ficha completa (presupuesto 2026 en dashboard)."
+  },
+  {
+    "inventario_id": 6,
+    "nombre_corto": "CTBG",
+    "tema": "Consejos de transparencia",
+    "nota": "Complementa a la AEPD (referencia 9004) en destinos autonómicos."
+  },
+  {
+    "inventario_id": 5,
+    "nombre_corto": "AIReF",
+    "tema": "Autoridades fiscales independientes",
+    "nota": "En inventario; no confundir con AEAT (9002)."
+  }
+]

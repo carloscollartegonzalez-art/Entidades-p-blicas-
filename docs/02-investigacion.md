@@ -50,8 +50,8 @@ La búsqueda de cifras la hicieron agentes de investigación: instancias de Clau
 
 1. Copia el encargo que corresponda de `investigacion/encargos/` y cambia el lote. Para una entidad nueva, añádela antes a la hoja de `datos/entrada/` con un ID nuevo.
 2. Dáselo a un agente con búsqueda web, o síguelo a mano. Las reglas valen igual para una persona.
-3. Guarda el JSON en `datos/resultados/` y añádelo a la lista de `scripts/run_all.sh`, después de los existentes.
-4. Ejecuta `bash scripts/run_all.sh` y revisa en la hoja «Cambios» qué ha cambiado.
+3. Guarda el JSON en `datos/resultados/` y añádelo a la lista `ORDEN` de `scripts/apply.py`, antes de `Z_clasificacion.json`.
+4. Ejecuta `python scripts/run_all.py` y revisa en la hoja «Cambios» qué ha cambiado.
 5. Antes de dar por buena una tanda, pide a otro agente o a otra persona que coteje una muestra con la fuente, como en el encargo 14.
 
 Para actualizar a otro año o corte, por ejemplo la ejecución a 31/12/2026:

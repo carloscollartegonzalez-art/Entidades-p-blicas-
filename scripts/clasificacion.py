@@ -151,6 +151,6 @@ for i, (lv, act, why) in sorted(c.items()):
         'Clasificación: actividad reciente': act,
         'Clasificación: motivo': why,
     }})
-json.dump(out, open(RES / 'Z_clasificacion_v1.json', 'w'), ensure_ascii=False, indent=1)
+json.dump(out, open(RES / 'Z_clasificacion_v1.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 from collections import Counter
 print(Counter(v[0] for v in c.values()), Counter(BIN[v[0]] for v in c.values()))
